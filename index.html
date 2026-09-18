@@ -230,6 +230,7 @@ function markDayDone(day){
   const p = getProgress();
   if (!p.completedDays.includes(day)) p.completedDays.push(day);
   saveJSON(LS_PROGRESS, p);
+  syncPoolWithProgress();
 }
 
 function getSRS(){ return loadJSON(LS_SRS, {}); }
@@ -242,29 +243,38 @@ function addDays(dateStr, n){
   return d.toISOString().slice(0,10);
 }
 
-function buildPool(){
-  // vocab:DAY:INDEX + phrase:CAT:INDEX, only from 'new' lessons
+function syncPoolWithProgress(){
+  // Slovíčka jdou do opakování až poté, co byl daný den skutečně dokončen —
+  // ne dopředu ze všech lekcí appky. Fráze (Fráze záložka) záměrně mimo SRS,
+  // jsou to reference k prohlížení, ne látka k biflování.
+  const progress = getProgress();
   const srs = getSRS();
   let changed = false;
-  DATA.lessons.filter(l => l.type === 'new').forEach(l=>{
-    (l.vocab||[]).forEach((v,i)=>{
-      const id = `vocab:${l.day}:${i}`;
-      if (!srs[id]){ srs[id] = {box:0, due: todayStr(), es:v.es, cz:v.cz}; changed = true; }
+  DATA.lessons
+    .filter(l => l.type === 'new' && progress.completedDays.includes(l.day))
+    .forEach(l=>{
+      (l.vocab||[]).forEach((v,i)=>{
+        const id = `vocab:${l.day}:${i}`;
+        if (!srs[id]){ srs[id] = {box:0, due: todayStr(), es:v.es, cz:v.cz}; changed = true; }
+      });
     });
-  });
-  Object.keys(DATA.phrasebook?.categories||{}).forEach(cat=>{
-    (DATA.phrasebook.categories[cat]||[]).forEach((p,i)=>{
-      const id = `phrase:${cat}:${i}`;
-      if (!srs[id]){ srs[id] = {box:0, due: todayStr(), es:p.es, cz:p.cz}; changed = true; }
-    });
-  });
   if (changed) saveSRS(srs);
 }
 
 function dueCards(){
+  const progress = getProgress();
   const srs = getSRS();
   const t = todayStr();
-  return Object.entries(srs).filter(([id,c]) => c.due <= t).map(([id,c])=>({id,...c}));
+  return Object.entries(srs)
+    .filter(([id, c]) => {
+      if (c.due > t) return false;
+      const m = id.match(/^vocab:(\d+):/);
+      // obranná pojistka: i kdyby v localStorage zůstal záznam ze staré verze
+      // appky pro den, který ještě nebyl dokončen, sem se nedostane
+      if (m) return progress.completedDays.includes(parseInt(m[1], 10));
+      return true;
+    })
+    .map(([id,c])=>({id,...c}));
 }
 
 function cardsForDays(days){
@@ -485,8 +495,15 @@ function answer(knew){
   const srs = getSRS();
   const rec = srs[c.id];
   if (rec){
-    rec.box = knew ? Math.min(rec.box+1, LEITNER_INTERVALS.length-1) : 0;
-    rec.due = addDays(todayStr(), LEITNER_INTERVALS[rec.box]);
+    if (knew){
+      rec.box = Math.min(rec.box + 1, LEITNER_INTERVALS.length - 1);
+      rec.due = addDays(todayStr(), LEITNER_INTERVALS[rec.box]);
+    } else {
+      // "Nevěděla jsem" -> zpátky na box 0 a k dispozici HNED, ne až zítra.
+      // Ať to appka nabídne znovu třeba ve stejném kole opakování.
+      rec.box = 0;
+      rec.due = todayStr();
+    }
     saveSRS(srs);
   }
   reviewIndex++;
@@ -620,7 +637,7 @@ function firstIncompleteDay(){
 // ---------- init ----------
 fetch('lessons.json').then(r=>r.json()).then(data=>{
   DATA = data;
-  buildPool();
+  syncPoolWithProgress();
   currentDay = firstIncompleteDay();
   render();
 }).catch(err=>{
