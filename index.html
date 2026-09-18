@@ -36,12 +36,15 @@
 
   .day-row{display:flex;gap:8px;overflow-x:auto;padding:14px 16px 4px;margin:0 -16px;-webkit-overflow-scrolling:touch;}
   .day-row::-webkit-scrollbar{display:none;}
-  .day-pill{flex:0 0 auto;width:56px;height:66px;border-radius:14px;background:var(--paper);border:2px solid var(--line);display:flex;flex-direction:column;align-items:center;justify-content:center;gap:2px;cursor:pointer;font-weight:600;color:var(--ink);}
+  .day-pill{position:relative;flex:0 0 auto;width:56px;height:66px;border-radius:14px;background:var(--paper);border:2px solid var(--line);display:flex;flex-direction:column;align-items:center;justify-content:center;gap:2px;cursor:pointer;font-weight:600;color:var(--ink);}
   .day-pill .n{font-size:11px;opacity:.6;}
   .day-pill .e{font-size:20px;}
   .day-pill.active{border-color:var(--coral);background:#FFF0EC;}
-  .day-pill.done{border-color:var(--teal);}
-  .day-pill.done .e::after{content:" ✓";font-size:10px;}
+  .day-pill.done{background:var(--teal);border-color:var(--teal-dark);}
+  .day-pill.done .n{color:rgba(255,255,255,.85);}
+  .day-pill.done.active{background:#E8FBF8;border-color:var(--coral);}
+  .day-pill.done.active .n{color:var(--ink);opacity:.6;}
+  .check-badge{position:absolute;top:-5px;right:-5px;width:19px;height:19px;border-radius:50%;background:var(--teal-dark);color:#fff;font-size:11px;display:flex;align-items:center;justify-content:center;box-shadow:0 0 0 2px var(--cream);}
 
   .card{background:var(--paper);border-radius:18px;padding:18px;margin-top:16px;box-shadow:0 2px 10px rgba(35,48,58,.06);}
   .lesson-title{font-family:'Fraunces',serif;font-size:20px;font-weight:700;margin:0 0 4px;}
@@ -174,7 +177,6 @@
 <script>
 const LS_PROGRESS = 'eli_progress';
 const LS_SRS = 'eli_srs';
-const LS_LAST_DAY = 'eli_last_day';
 const LEITNER_INTERVALS = [1,3,7,14,30]; // days
 
 let DATA = null;
@@ -228,7 +230,6 @@ function markDayDone(day){
   const p = getProgress();
   if (!p.completedDays.includes(day)) p.completedDays.push(day);
   saveJSON(LS_PROGRESS, p);
-  localStorage.setItem(LS_LAST_DAY, String(day));
 }
 
 function getSRS(){ return loadJSON(LS_SRS, {}); }
@@ -308,9 +309,10 @@ function renderDayRow(){
   const progress = getProgress();
   row.innerHTML = '';
   DATA.lessons.forEach(l=>{
+    const isDone = progress.completedDays.includes(l.day);
     const pill = document.createElement('div');
-    pill.className = 'day-pill' + (l.day===currentDay ? ' active':'') + (progress.completedDays.includes(l.day) ? ' done':'');
-    pill.innerHTML = `<div class="e">${l.emoji||'📘'}</div><div class="n">Den ${l.day}</div>`;
+    pill.className = 'day-pill' + (l.day===currentDay ? ' active':'') + (isDone ? ' done':'');
+    pill.innerHTML = `<div class="e">${l.emoji||'📘'}</div><div class="n">Den ${l.day}</div>${isDone ? '<div class="check-badge">✓</div>' : ''}`;
     pill.onclick = ()=>{ currentDay = l.day; render(); };
     row.appendChild(pill);
   });
@@ -609,12 +611,17 @@ function renderTab(tab){
   }
 }
 
+function firstIncompleteDay(){
+  const p = getProgress();
+  const found = DATA.lessons.find(l => !p.completedDays.includes(l.day));
+  return found ? found.day : DATA.lessons[DATA.lessons.length - 1].day;
+}
+
 // ---------- init ----------
 fetch('lessons.json').then(r=>r.json()).then(data=>{
   DATA = data;
   buildPool();
-  const lastDay = parseInt(localStorage.getItem(LS_LAST_DAY)||'1',10);
-  currentDay = DATA.lessons.find(l=>l.day===lastDay) ? lastDay : DATA.lessons[0].day;
+  currentDay = firstIncompleteDay();
   render();
 }).catch(err=>{
   document.getElementById('lessonArea').innerHTML = '<div class="card">Nepodařilo se načíst lessons.json 😕</div>';
