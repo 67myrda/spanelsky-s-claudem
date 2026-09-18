@@ -268,15 +268,38 @@
         { "es": "¡Buenos días!", "cz": "Dobré ráno/dopoledne!" },
         { "es": "¡Hasta luego!", "cz": "Zatím ahoj!" },
         { "es": "¡Adiós!", "cz": "Sbohem!" }
+      ],
+      "Pozdravy podle denní doby": [
+        { "es": "¡Buenos días!", "cz": "Dobré ráno! (do cca poledne)" },
+        { "es": "¡Buenas tardes!", "cz": "Dobré odpoledne! (poledne až setmění)" },
+        { "es": "¡Buenas noches!", "cz": "Dobrý večer / dobrou noc! (na pozdrav i na rozloučenou)" },
+        { "es": "¡Que tengas un buen día!", "cz": "Ať máš hezký den!" }
+      ],
+      "Omluvy a poděkování": [
+        { "es": "Lo siento.", "cz": "Je mi to líto. / Omlouvám se." },
+        { "es": "Perdón.", "cz": "Promiň. (rychlá omluva, třeba když do někoho vrazíš)" },
+        { "es": "Gracias.", "cz": "Děkuji." },
+        { "es": "De nada.", "cz": "Není zač." }
+      ],
+      "Běžné fráze do každého dne": [
+        { "es": "No entiendo.", "cz": "Nerozumím." },
+        { "es": "¿Puedes repetir, por favor?", "cz": "Můžeš to zopakovat, prosím?" },
+        { "es": "¿Qué hora es?", "cz": "Kolik je hodin?" },
+        { "es": "Un momento, por favor.", "cz": "Moment, prosím." }
       ]
     }
   },
   "customs": {
     "categories": {
-      "Tykání mezi teenagery": "Mezi vrstevníky se ve Španělsku i Latinské Americe automaticky tyká (tú) — na rozdíl od Olivovštiny (obchodní appka), tady se nikdy neřeší vykání. S dospělými cizinci (učitel, rodič kamarádky) se zdvořilost řeší jinak, ale to appka řeší až později."
+      "Tykání mezi teenagery": "Mezi vrstevníky se ve Španělsku i Latinské Americe automaticky tyká (tú) — na rozdíl od Olivovštiny (obchodní appka), tady se nikdy neřeší vykání. S dospělými cizinci (učitel, rodič kamarádky) se zdvořilost řeší jinak, ale to appka řeší až později.",
+      "Kolik jazyků má vlastně Španělsko": "Kastilština (to, co se učíš) je úřední jazyk celého Španělska, ale není jediný. V Katalánsku se běžně mluví katalánsky, v Baskicku baskicky (euskera — jazyk, který není příbuzný se žádným jiným evropským jazykem!) a v Galicii galicijsky. Na ulici v Barceloně tak často uslyšíš úplně jinak znějící řeč než tu, kterou se učíš — a to je v pořádku, obojí je „správně“ španělské.",
+      "Jak vypadá jejich škola": "Španělský instituto (střední škola) obvykle začíná dřív než u nás — kolem 8:00 — a končí kolem 14:00-15:00, bez odpoledního vyučování. Obědvá se pak doma nebo hodně pozdě, často až po 14. hodině. Prázdniny mají Španělé v létě extrémně dlouhé — červen až polovina září, skoro tři měsíce.",
+      "Proč se večeří tak pozdě": "Ve Španělsku je úplně normální večeřet v 21 nebo i 22 hodin — restaurace před 20:30 mívají často ještě prázdno. Souvisí to i se siestou: v menších městech se přes poledne (14-17 h) zavírají obchody, lidé si odpočinou nebo si zdřímnou, a celý denní rytmus se tím posune později.",
+      "Tapas — jídlo, které se sdílí": "Tapas nejsou jedno konkrétní jídlo, ale styl stolování — malé porce (olivy, tortilla, jamón...), které si skupina lidí objedná společně doprostřed stolu a všichni si berou. Chodit „de tapas“ (na tapas) je společenská záležitost, ne rychlé občerstvení."
     }
   },
   "verbs": {
+    "intro": "Sloves je tu zatím málo schválně — přibývají postupně, jak se objevují v lekcích, ne všechna najednou. Tahle záložka je spíš referenční přehled toho, co už umíš, než seznam k biflování dopředu.",
     "list": [
       {
         "infinitive": "llamarse",
@@ -301,6 +324,12 @@
         "translation": "bydlet, žít",
         "forms": { "yo": "vivo", "tú": "vives", "él/ella": "vive" },
         "example": { "es": "Vivo en Police nad Metují.", "cz": "Bydlím v Polici nad Metují." }
+      },
+      {
+        "infinitive": "gustar",
+        "translation": "líbit se (funguje jinak než ostatní!)",
+        "forms": { "(a mí) me": "gusta", "(a ti) te": "gusta", "(a él/ella) le": "gusta" },
+        "example": { "es": "Me gusta el español.", "cz": "Líbí se mi španělština." }
       }
     ]
   }
