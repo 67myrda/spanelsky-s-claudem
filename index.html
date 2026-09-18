@@ -68,8 +68,14 @@
   .info-box{border-left:3px solid var(--gold);background:#FFFBF0;border-radius:0 10px 10px 0;padding:10px 12px;font-size:14px;line-height:1.5;}
   .info-box .it{font-weight:700;margin-bottom:4px;display:block;}
 
-  .variation{font-size:14px;padding:8px 0;border-bottom:1px dashed var(--line);}
-  .variation:last-child{border-bottom:none;}
+  .variation-row{display:flex;align-items:center;gap:10px;padding:8px 0;border-bottom:1px dashed var(--line);}
+  .variation-row:last-child{border-bottom:none;}
+  .variation-row .vtxt{flex:1;font-size:14px;line-height:1.4;}
+  .variation-row .tts-btn{width:32px;height:32px;font-size:14px;flex:0 0 auto;}
+
+  .unlock-bar{max-width:520px;margin:10px auto 0;padding:0 16px;}
+  .unlock-btn{display:flex;align-items:center;justify-content:center;gap:8px;width:100%;padding:12px;border:none;border-radius:14px;background:var(--gold);color:#5A3E00;font-weight:700;font-size:14px;cursor:pointer;}
+  .unlock-btn.hidden{display:none;}
 
   .srs-btn{display:block;width:100%;margin-top:18px;padding:14px;border:none;border-radius:14px;background:var(--coral);color:#fff;font-weight:700;font-size:15px;cursor:pointer;}
   .srs-btn:active{background:var(--coral-dark);}
@@ -113,6 +119,10 @@
     <button class="menu-btn" id="menuBtn">☰</button>
   </div>
 </header>
+
+<div class="unlock-bar">
+  <button class="unlock-btn" id="unlockBtn">🔊 Klepni sem, ať funguje zvuk (hlavně na iPhonu)</button>
+</div>
 
 <div class="wrap">
   <div class="day-row" id="dayRow"></div>
@@ -170,6 +180,20 @@ function speak(text){
   u.rate = 0.85;
   speechSynthesis.speak(u);
 }
+
+// iOS/Safari vyžaduje, aby první přehrání řeči proběhlo přímo z doteku uživatele.
+// Tohle tlačítko to "odemkne" na celou dobu používání appky (uloží se do localStorage).
+const LS_AUDIO_UNLOCKED = 'eli_audio_unlocked';
+const unlockBtn = document.getElementById('unlockBtn');
+if (localStorage.getItem(LS_AUDIO_UNLOCKED) === '1'){
+  unlockBtn.classList.add('hidden');
+}
+unlockBtn.onclick = ()=>{
+  pickVoice();
+  speak('Hola');
+  localStorage.setItem(LS_AUDIO_UNLOCKED, '1');
+  unlockBtn.classList.add('hidden');
+};
 
 // ---------- storage helpers ----------
 function loadJSON(key, fallback){
@@ -314,9 +338,11 @@ function render(){
     vlab.className='section-label'; vlab.textContent='Co ještě můžeš říct';
     card.appendChild(vlab);
     l.variations.forEach(v=>{
+      const esPart = v.split(/\s*\(/)[0].trim();
       const row = document.createElement('div');
-      row.className='variation';
-      row.textContent = v;
+      row.className='variation-row';
+      row.innerHTML = `<div class="vtxt">${v}</div><button class="tts-btn">🔊</button>`;
+      row.querySelector('.tts-btn').onclick = ()=>speak(esPart);
       card.appendChild(row);
     });
   }
