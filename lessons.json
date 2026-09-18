@@ -298,6 +298,19 @@
       "Tapas — jídlo, které se sdílí": "Tapas nejsou jedno konkrétní jídlo, ale styl stolování — malé porce (olivy, tortilla, jamón...), které si skupina lidí objedná společně doprostřed stolu a všichni si berou. Chodit „de tapas“ (na tapas) je společenská záležitost, ne rychlé občerstvení."
     }
   },
+  "pronouns": {
+    "intro": "Appka zatím v dialozích pracuje hlavně s „yo“ (já) a „tú“ (ty) — protože mluvíš converzačně o sobě a s kamarády. Zbytek si dej sem do přehledu; postupně se objeví i v lekcích, až budeš mluvit o někom třetím nebo o skupině lidí.",
+    "list": [
+      { "es": "yo", "cz": "já" },
+      { "es": "tú", "cz": "ty" },
+      { "es": "él", "cz": "on" },
+      { "es": "ella", "cz": "ona" },
+      { "es": "nosotros / nosotras", "cz": "my (kluci nebo smíšená skupina / jen holky)" },
+      { "es": "vosotros / vosotras", "cz": "vy (běžné ve Španělsku! / jen holky)" },
+      { "es": "ellos / ellas", "cz": "oni / ony" }
+    ],
+    "note": "„Vosotros“ uslyšíš jen ve Španělsku — v Latinské Americe se pro „vy“ místo toho používá „ustedes“ (i mezi kamarády). Appka se drží španělské (kastilské) varianty."
+  },
   "verbs": {
     "intro": "Sloves je tu zatím málo schválně — přibývají postupně, jak se objevují v lekcích, ne všechna najednou. Tahle záložka je spíš referenční přehled toho, co už umíš, než seznam k biflování dopředu.",
     "list": [
