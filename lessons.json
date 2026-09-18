@@ -32,6 +32,103 @@
         "Soy checa. (Jsem Češka.)",
         "¡Hasta luego! (Zatím ahoj! — na rozloučenou.)"
       ]
+    },
+    {
+      "day": 2,
+      "title": "Opakování: Pozdravy a jméno",
+      "theme": "zaklady",
+      "emoji": "🔁",
+      "type": "review"
+    },
+    {
+      "day": 3,
+      "title": "Kolik ti je a odkud přesně jsi?",
+      "theme": "zaklady",
+      "emoji": "🚌",
+      "type": "new",
+      "dialogue": [
+        { "es": "¿Cuántos años tienes?", "cz": "Kolik je ti let?" },
+        { "es": "Tengo quince años. ¿Y tú?", "cz": "Je mi patnáct. A tobě?" },
+        { "es": "¿Dónde vives?", "cz": "Kde bydlíš?" },
+        { "es": "Vivo en Police nad Metují, pero voy al instituto en Náchod en autobús.", "cz": "Bydlím v Polici nad Metují, ale do školy jezdím do Náchoda autobusem." }
+      ],
+      "vocab": [
+        { "es": "¿cuántos años tienes?", "cz": "kolik je ti let?" },
+        { "es": "tengo... años", "cz": "je mi... let" },
+        { "es": "¿dónde vives?", "cz": "kde bydlíš?" },
+        { "es": "voy en autobús", "cz": "jezdím autobusem" }
+      ],
+      "grammar": {
+        "title": "Sloveso tener (mít)",
+        "text": "Tener normálně znamená „mít“, ale na věk se používá taky: doslova říkáš „mám patnáct let“ (tengo quince años), ne „je mi“. Zatím stačí umět „tengo“ (já mám) a „tienes“ (ty máš) — celé časování najdeš v záložce Slovesa, až budeš chtít."
+      },
+      "pronunciation": {
+        "title": "Písmeno „ñ“",
+        "text": "„ñ“ se čte jako české „ň“. „Años“ = „A-ňos“, ne „a-ni-os“. Tohle písmenko uvidíš často, tak si ho zapamatuj hned."
+      },
+      "variations": [
+        "Tengo dieciséis años. (Je mi šestnáct.)",
+        "Vivo en Náchod. (Bydlím v Náchodě.)",
+        "Voy en tren. (Jezdím vlakem.)",
+        "¿Y tú, dónde vives? (A ty, kde bydlíš?)"
+      ]
+    },
+    {
+      "day": 4,
+      "title": "Opakování: Věk a bydliště",
+      "theme": "zaklady",
+      "emoji": "🔁",
+      "type": "review"
+    },
+    {
+      "day": 5,
+      "title": "Moje rodina",
+      "theme": "rodina",
+      "emoji": "👨‍👩‍👧‍👦",
+      "type": "new",
+      "dialogue": [
+        { "es": "¿Tienes hermanos?", "cz": "Máš sourozence?" },
+        { "es": "Sí, tengo una hermana pequeña. Se llama Lucía.", "cz": "Ano, mám mladší sestru. Jmenuje se Lucie." },
+        { "es": "Mi padre vive en Pardubice, con mis abuelos.", "cz": "Můj táta bydlí v Pardubicích, s mými prarodiči." },
+        { "es": "Los visito muy a menudo.", "cz": "Navštěvuji je moc často." }
+      ],
+      "vocab": [
+        { "es": "¿tienes hermanos?", "cz": "máš sourozence?" },
+        { "es": "mi hermana / mi hermano", "cz": "moje sestra / můj bratr" },
+        { "es": "mi padre / mi madre", "cz": "můj táta / moje máma" },
+        { "es": "mis abuelos", "cz": "moji prarodiče" }
+      ],
+      "grammar": {
+        "title": "Mi a tu (můj, tvůj)",
+        "text": "„Mi“ (můj/moje) a „tu“ (tvůj/tvoje) se nemění podle toho, jestli mluvíš o klukovi nebo holce — vždy stejné slovo: mi hermana, mi hermano, tu padre, tu madre. Jednodušší než čeština!"
+      },
+      "pronunciation": {
+        "title": "Němé „h“",
+        "text": "„h“ se ve španělštině nikdy nevyslovuje. „Hermano“ se čte „er-MA-no“, ne „her-MA-no“. Stejně tak „hola“ = „O-la“."
+      },
+      "variations": [
+        "Tengo un hermano mayor. (Mám staršího bratra.)",
+        "Mi abuela vive en Pardubice. (Moje babička bydlí v Pardubicích.)",
+        "No tengo hermanos. (Nemám sourozence.)",
+        "Toco la guitarra en mi tiempo libre. (Ve volném čase hraju na kytaru.)"
+      ]
+    },
+    {
+      "day": 6,
+      "title": "Opakování: Rodina",
+      "theme": "rodina",
+      "emoji": "🔁",
+      "type": "review"
+    },
+    {
+      "day": 7,
+      "title": "Shrnutí: Kdo jsem a odkud",
+      "theme": "zaklady",
+      "emoji": "🎉",
+      "type": "summary",
+      "isSummary": true,
+      "summaryOf": [1, 3, 5],
+      "reviewAll": true
     }
   ],
   "phrasebook": {
@@ -62,6 +159,18 @@
         "translation": "být (kdo/odkud jsem)",
         "forms": { "yo": "soy", "tú": "eres", "él/ella": "es" },
         "example": { "es": "Soy de la República Checa.", "cz": "Jsem z České republiky." }
+      },
+      {
+        "infinitive": "tener",
+        "translation": "mít (i na věk)",
+        "forms": { "yo": "tengo", "tú": "tienes", "él/ella": "tiene" },
+        "example": { "es": "Tengo quince años.", "cz": "Je mi patnáct." }
+      },
+      {
+        "infinitive": "vivir",
+        "translation": "bydlet, žít",
+        "forms": { "yo": "vivo", "tú": "vives", "él/ella": "vive" },
+        "example": { "es": "Vivo en Police nad Metují.", "cz": "Bydlím v Polici nad Metují." }
       }
     ]
   }
