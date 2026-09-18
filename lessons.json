@@ -259,6 +259,266 @@
       "isSummary": true,
       "summaryOf": [8, 10, 12],
       "reviewAll": true
+    },
+    {
+      "day": 15,
+      "title": "Volný čas a koníčky",
+      "theme": "koniceky",
+      "emoji": "🎸",
+      "type": "new",
+      "dialogue": [
+        { "es": "¿Qué haces en tu tiempo libre?", "cz": "Co děláš ve volném čase?" },
+        { "es": "Toco la guitarra y escucho música.", "cz": "Hraju na kytaru a poslouchám hudbu." },
+        { "es": "¡Qué chulo! ¿Y qué más te gusta hacer?", "cz": "Super! A co ještě ráda děláš?" },
+        { "es": "Me gusta leer y salir con mis amigas.", "cz": "Ráda čtu a chodím ven s kamarádkami." }
+      ],
+      "vocab": [
+        { "es": "el tiempo libre", "cz": "volný čas" },
+        { "es": "tocar la guitarra", "cz": "hrát na kytaru" },
+        { "es": "escuchar música", "cz": "poslouchat hudbu" },
+        { "es": "salir con amigos/as", "cz": "chodit ven s kamarády/kamarádkami" }
+      ],
+      "grammar": {
+        "title": "Sloveso hacer (dělat)",
+        "text": "Hacer je nepravidelné jen v „já“ formě: hago (ne „haco“). Zbytek se chová normálně: haces, hace... Uvidíš ho hlavně v otázce „¿Qué haces?“ (Co děláš?)."
+      },
+      "pronunciation": {
+        "title": "„Gu“ před e/i drží tvrdé „g“",
+        "text": "V „guitarra“ to „u“ za g není samo o sobě slyšet — je tam jen proto, aby se g četlo tvrdě (jako v „guma“), ne měkce/hrdelně. Guitarra tedy zní „gi-TA-rra“, ne s němým u zvlášť vyslovovaným."
+      },
+      "variations": [
+        "Me gusta dibujar. (Ráda kreslím.)",
+        "Juego a videojuegos. (Hraju videohry.)",
+        "Practico deporte los fines de semana. (O víkendech sportuju.)",
+        "Prefiero quedarme en casa. (Radši zůstávám doma.)"
+      ]
+    },
+    {
+      "day": 16,
+      "title": "Opakování: Koníčky",
+      "theme": "koniceky",
+      "emoji": "🔁",
+      "type": "review"
+    },
+    {
+      "day": 17,
+      "title": "Hudba, seriály, sítě",
+      "theme": "koniceky",
+      "emoji": "🎧",
+      "type": "new",
+      "dialogue": [
+        { "es": "¿Qué tipo de música te gusta?", "cz": "Jaký styl hudby máš ráda?" },
+        { "es": "Me gusta el pop y también el flamenco español.", "cz": "Mám ráda pop a taky španělský flamenco." },
+        { "es": "¿Ves alguna serie ahora?", "cz": "Sleduješ teď nějaký seriál?" },
+        { "es": "Sí, veo una serie española con subtítulos.", "cz": "Ano, dívám se na španělský seriál s titulky." }
+      ],
+      "vocab": [
+        { "es": "la música", "cz": "hudba" },
+        { "es": "una serie", "cz": "seriál" },
+        { "es": "ver una serie", "cz": "dívat se na seriál" },
+        { "es": "las redes sociales", "cz": "sociální sítě" }
+      ],
+      "grammar": {
+        "title": "Sloveso ver (vidět, dívat se)",
+        "text": "Veo (vidím/dívám se), ves (vidíš/díváš se) — krátké a časté sloveso, hodí se přesně na „dívám se na seriál“."
+      },
+      "pronunciation": {
+        "title": "Přízvuk podle pravidla (bez čárky)",
+        "text": "„Serie“ nemá čárku, tak platí základní pravidlo — přízvuk na předposlední slabice: se-RI-e. Kdyby tam čárka byla, bylo by to jinak — čárka vždycky pravidlo přebíjí."
+      },
+      "variations": [
+        "Uso Instagram todos los días. (Používám Instagram každý den.)",
+        "Sigo a varios cantantes españoles. (Sleduju několik španělských zpěváků.)",
+        "No me gustan las series de miedo. (Nemám ráda horory.)",
+        "Prefiero la música en español. (Radši mám hudbu ve španělštině.)"
+      ]
+    },
+    {
+      "day": 18,
+      "title": "Opakování: Hudba a seriály",
+      "theme": "koniceky",
+      "emoji": "🔁",
+      "type": "review"
+    },
+    {
+      "day": 19,
+      "title": "Sport (nebo ne)",
+      "theme": "koniceky",
+      "emoji": "⚽",
+      "type": "new",
+      "dialogue": [
+        { "es": "¿Practicas algún deporte?", "cz": "Sportuješ nějak?" },
+        { "es": "Juego al fútbol con mis primos a veces.", "cz": "Občas hraju fotbal s bratránky." },
+        { "es": "¿Te gusta más el fútbol o la música?", "cz": "Máš radši fotbal, nebo hudbu?" },
+        { "es": "Prefiero la música, sin duda.", "cz": "Rozhodně mám radši hudbu." }
+      ],
+      "vocab": [
+        { "es": "jugar al fútbol", "cz": "hrát fotbal" },
+        { "es": "los primos", "cz": "bratranci, sestřenice" },
+        { "es": "sin duda", "cz": "bez pochyby, rozhodně" },
+        { "es": "practicar deporte", "cz": "sportovat" }
+      ],
+      "grammar": {
+        "title": "Dvě nepravidelná slovesa: jugar a preferir",
+        "text": "Jugar (hrát) mění u→ue: juego, juegas — ale „my hrajeme“ zůstává pravidelně jugamos. Preferir (dávat přednost) mění e→ie: prefiero, prefieres. Zatím stačí umět „já“ formu u obou."
+      },
+      "pronunciation": {
+        "title": "Písmeno „j“ (jota)",
+        "text": "„j“ se čte jako silné hrdelní h, podobně jako skotské „loch“. Juego tedy zní jako „CHU-e-go“, ne „DŽU-e-go“."
+      },
+      "variations": [
+        "Odio el fútbol. (Nesnáším fotbal.)",
+        "Juego videojuegos con mi hermana. (Hraju videohry se sestrou.)",
+        "Los fines de semana, practico poco deporte. (O víkendech moc nesportuju.)",
+        "Toco la guitarra en vez de hacer deporte. (Místo sportu hraju na kytaru.)"
+      ]
+    },
+    {
+      "day": 20,
+      "title": "Opakování: Sport",
+      "theme": "koniceky",
+      "emoji": "🔁",
+      "type": "review"
+    },
+    {
+      "day": 21,
+      "title": "Shrnutí: Koníčky, hudba, sport",
+      "theme": "koniceky",
+      "emoji": "🎉",
+      "type": "summary",
+      "isSummary": true,
+      "summaryOf": [15, 17, 19],
+      "reviewAll": true
+    },
+    {
+      "day": 22,
+      "title": "Jídlo a pití",
+      "theme": "jidlo",
+      "emoji": "🍽️",
+      "type": "new",
+      "dialogue": [
+        { "es": "¿Tienes hambre?", "cz": "Máš hlad?" },
+        { "es": "Sí, un poco. ¿Qué quieres comer?", "cz": "Trochu ano. Co chceš jíst?" },
+        { "es": "Quiero un bocadillo y un zumo de naranja.", "cz": "Chci sendvič a pomerančový džus." },
+        { "es": "Yo prefiero una tortilla española.", "cz": "Já mám radši španělskou bramborovou omeletu." }
+      ],
+      "vocab": [
+        { "es": "tener hambre / sed", "cz": "mít hlad / žízeň" },
+        { "es": "un bocadillo", "cz": "sendvič, bageta" },
+        { "es": "el zumo de naranja", "cz": "pomerančový džus" },
+        { "es": "la tortilla española", "cz": "španělská bramborová omeleta" }
+      ],
+      "grammar": {
+        "title": "Querer (chtít) — nepravidelné e→ie",
+        "text": "Quiero (chci), quieres (chceš) — stejný vzor jako preferir. Když si tyhle dva vzorce spojíš dohromady, uvidíš, že spousta „nepravidelných“ sloves ve španělštině mění samohlásku úplně stejně."
+      },
+      "pronunciation": {
+        "title": "„Z“ se čte pořád stejně",
+        "text": "„Z“ se ve Španělsku čte vždy jako anglické „th“ (jako u „c“ před e/i) — bez ohledu na to, jaká samohláska následuje. Zumo tedy zní „THU-mo“, ne „ZU-mo“."
+      },
+      "variations": [
+        "Tengo mucha sed. (Mám velkou žízeň.)",
+        "No como carne. (Nejím maso.)",
+        "¿Qué me recomiendas? (Co mi doporučíš?)",
+        "Está muy rico. (Je to moc dobré.)"
+      ]
+    },
+    {
+      "day": 23,
+      "title": "Opakování: Jídlo",
+      "theme": "jidlo",
+      "emoji": "🔁",
+      "type": "review"
+    },
+    {
+      "day": 24,
+      "title": "V restauraci a kavárně",
+      "theme": "jidlo",
+      "emoji": "☕",
+      "type": "new",
+      "dialogue": [
+        { "es": "Una mesa para dos, por favor.", "cz": "Stůl pro dva, prosím." },
+        { "es": "¿Qué van a tomar?", "cz": "Co si dáte?" },
+        { "es": "Para mí, un café con leche, por favor.", "cz": "Pro mě kávu s mlékem, prosím." },
+        { "es": "La cuenta, por favor.", "cz": "Účet, prosím." }
+      ],
+      "vocab": [
+        { "es": "una mesa para dos", "cz": "stůl pro dva" },
+        { "es": "¿qué van a tomar?", "cz": "co si dáte? (fráze číšníka)" },
+        { "es": "para mí...", "cz": "pro mě..." },
+        { "es": "la cuenta, por favor", "cz": "účet, prosím" }
+      ],
+      "grammar": {
+        "title": "Fráze, které jen poznáš",
+        "text": "„¿Qué van a tomar?“ používá tvar pro „vy“ (ustedes), který appka jinak aktivně neučí. V restauraci ho ale uslyšíš pořád — tak si ho zapamatuj celý, i bez toho, abys věděla přesně, jak přesně vzniká."
+      },
+      "pronunciation": {
+        "title": "Čárka nad „café“",
+        "text": "Café má čárku nad e, takže přízvuk je na druhé slabice (ka-FE) — bez čárky by podle základního pravidla (viz Den 17) byl přízvuk jinde. Čárka je vždycky silnější než obecné pravidlo."
+      },
+      "variations": [
+        "¿Tienen wifi? (Máte wifi?)",
+        "Sin hielo, por favor. (Bez ledu, prosím.)",
+        "¿Aceptan tarjeta? (Přijímáte kartu?)",
+        "Está buenísimo. (Je to moc moc dobré.)"
+      ]
+    },
+    {
+      "day": 25,
+      "title": "Opakování: Restaurace",
+      "theme": "jidlo",
+      "emoji": "🔁",
+      "type": "review"
+    },
+    {
+      "day": 26,
+      "title": "Nákupy",
+      "theme": "nakupy",
+      "emoji": "🛍️",
+      "type": "new",
+      "dialogue": [
+        { "es": "¿Cuánto cuesta esto?", "cz": "Kolik tohle stojí?" },
+        { "es": "Cuesta diez euros.", "cz": "Stojí to deset eur." },
+        { "es": "¿Tienen tallas más pequeñas?", "cz": "Máte menší velikosti?" },
+        { "es": "Sí, un momento, se lo traigo.", "cz": "Ano, moment, přinesu vám to." }
+      ],
+      "vocab": [
+        { "es": "¿cuánto cuesta?", "cz": "kolik to stojí?" },
+        { "es": "la talla", "cz": "velikost (oblečení)" },
+        { "es": "más pequeño/a, más grande", "cz": "menší, větší" },
+        { "es": "¿me lo puedo probar?", "cz": "můžu si to zkusit?" }
+      ],
+      "grammar": {
+        "title": "Costar (stát/cenit se) — nepravidelné o→ue",
+        "text": "Costar se skoro vždy používá jen ve třetí osobě: cuesta (stojí — jedna věc), cuestan (stojí — víc věcí). Je to stejný typ změny jako u jugar."
+      },
+      "pronunciation": {
+        "title": "„C“ má dva zvuky podle toho, co je za ním",
+        "text": "Před a/o/u zní „c“ jako tvrdé „k“ (cuesta, cuánto). Před e/i zní jako „th“ (gracias, cuántos jde ale o cu-, ne c- samotné — pozor, „cuánto“ má tvrdé k, protože je tam „u“ hned za c). Stejné písmeno, dva zvuky."
+      },
+      "variations": [
+        "Es muy caro. (Je to moc drahé.)",
+        "Es bastante barato. (Je to docela levné.)",
+        "¿Tienen esto en azul? (Máte tohle v modré?)",
+        "Solo estoy mirando, gracias. (Jen se dívám, díky.)"
+      ]
+    },
+    {
+      "day": 27,
+      "title": "Opakování: Nákupy",
+      "theme": "nakupy",
+      "emoji": "🔁",
+      "type": "review"
+    },
+    {
+      "day": 28,
+      "title": "Shrnutí: Jídlo, restaurace, nákupy",
+      "theme": "jidlo",
+      "emoji": "🎉",
+      "type": "summary",
+      "isSummary": true,
+      "summaryOf": [22, 24, 26],
+      "reviewAll": true
     }
   ],
   "phrasebook": {
@@ -343,6 +603,42 @@
         "translation": "líbit se (funguje jinak než ostatní!)",
         "forms": { "(a mí) me": "gusta", "(a ti) te": "gusta", "(a él/ella) le": "gusta" },
         "example": { "es": "Me gusta el español.", "cz": "Líbí se mi španělština." }
+      },
+      {
+        "infinitive": "hacer",
+        "translation": "dělat",
+        "forms": { "yo": "hago", "tú": "haces", "él/ella": "hace" },
+        "example": { "es": "¿Qué haces en tu tiempo libre?", "cz": "Co děláš ve volném čase?" }
+      },
+      {
+        "infinitive": "ver",
+        "translation": "vidět, dívat se",
+        "forms": { "yo": "veo", "tú": "ves", "él/ella": "ve" },
+        "example": { "es": "Veo una serie española.", "cz": "Dívám se na španělský seriál." }
+      },
+      {
+        "infinitive": "jugar",
+        "translation": "hrát (hru, sport)",
+        "forms": { "yo": "juego", "tú": "juegas", "él/ella": "juega" },
+        "example": { "es": "Juego al fútbol.", "cz": "Hraju fotbal." }
+      },
+      {
+        "infinitive": "preferir",
+        "translation": "dávat přednost, mít radši",
+        "forms": { "yo": "prefiero", "tú": "prefieres", "él/ella": "prefiere" },
+        "example": { "es": "Prefiero la música.", "cz": "Mám radši hudbu." }
+      },
+      {
+        "infinitive": "querer",
+        "translation": "chtít",
+        "forms": { "yo": "quiero", "tú": "quieres", "él/ella": "quiere" },
+        "example": { "es": "Quiero un bocadillo.", "cz": "Chci sendvič." }
+      },
+      {
+        "infinitive": "costar",
+        "translation": "stát (o ceně)",
+        "forms": { "esto": "cuesta", "estos/estas": "cuestan" },
+        "example": { "es": "¿Cuánto cuesta esto?", "cz": "Kolik tohle stojí?" }
       }
     ]
   }
