@@ -1,0 +1,501 @@
+<!DOCTYPE html>
+<html lang="cs">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, viewport-fit=cover">
+<title>Španělsky s Eli</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Fraunces:ital,wght@0,500;0,700;1,500&family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
+<style>
+  :root{
+    --cream:#FFF8F0;
+    --ink:#23303A;
+    --coral:#FF6F59;
+    --coral-dark:#E85A45;
+    --teal:#2EC4B6;
+    --teal-dark:#1FA69A;
+    --gold:#FFC857;
+    --paper:#FFFFFF;
+    --line:#E7DFD3;
+  }
+  *{box-sizing:border-box; -webkit-tap-highlight-color:transparent;}
+  html,body{margin:0;padding:0;background:var(--cream);color:var(--ink);font-family:'Inter',sans-serif;-webkit-font-smoothing:antialiased;}
+  body{min-height:100dvh; padding-bottom:env(safe-area-inset-bottom);}
+  .wrap{max-width:520px;margin:0 auto;padding:0 16px 40px;}
+  header{
+    background:linear-gradient(120deg,#1FA69A 0%,#2EC4B6 30%,#FFF3D6 58%,#FFC857 78%,#FF6F59 100%);
+    padding:calc(env(safe-area-inset-top) + 18px) 16px 22px;
+    color:#173A38;
+  }
+  header .top{max-width:520px;margin:0 auto;display:flex;align-items:center;justify-content:space-between;gap:10px;}
+  header h1{font-family:'Fraunces',serif;font-size:22px;margin:0;font-weight:700;}
+  header h1 em{font-style:italic;color:var(--coral-dark);}
+  .streak{font-size:13px;font-weight:600;background:rgba(255,255,255,.55);padding:5px 10px;border-radius:20px;white-space:nowrap;}
+  .menu-btn{background:rgba(255,255,255,.55);border:none;border-radius:12px;width:40px;height:40px;font-size:18px;display:flex;align-items:center;justify-content:center;cursor:pointer;}
+
+  .day-row{display:flex;gap:8px;overflow-x:auto;padding:14px 16px 4px;margin:0 -16px;-webkit-overflow-scrolling:touch;}
+  .day-row::-webkit-scrollbar{display:none;}
+  .day-pill{flex:0 0 auto;width:56px;height:66px;border-radius:14px;background:var(--paper);border:2px solid var(--line);display:flex;flex-direction:column;align-items:center;justify-content:center;gap:2px;cursor:pointer;font-weight:600;color:var(--ink);}
+  .day-pill .n{font-size:11px;opacity:.6;}
+  .day-pill .e{font-size:20px;}
+  .day-pill.active{border-color:var(--coral);background:#FFF0EC;}
+  .day-pill.done{border-color:var(--teal);}
+  .day-pill.done .e::after{content:" ✓";font-size:10px;}
+
+  .card{background:var(--paper);border-radius:18px;padding:18px;margin-top:16px;box-shadow:0 2px 10px rgba(35,48,58,.06);}
+  .lesson-title{font-family:'Fraunces',serif;font-size:20px;font-weight:700;margin:0 0 4px;}
+  .lesson-sub{font-size:13px;color:#6b7680;margin:0 0 14px;}
+
+  .encourage{background:#FFF3D6;border-radius:14px;padding:10px 14px;font-size:13px;margin-bottom:14px;color:#7A5A00;line-height:1.4;}
+
+  .section-label{font-size:12px;text-transform:uppercase;letter-spacing:.06em;font-weight:700;color:#8b95a0;margin:18px 0 8px;}
+  .section-label:first-child{margin-top:0;}
+
+  .line{display:flex;align-items:center;gap:10px;background:#FAF6EF;border-radius:12px;padding:10px 12px;margin-bottom:8px;}
+  .line .txt{flex:1;}
+  .line .es{font-family:'Fraunces',serif;font-size:17px;font-weight:500;}
+  .line .cz{font-size:13px;color:#6b7680;margin-top:2px;}
+  .tts-btn{flex:0 0 auto;width:36px;height:36px;border-radius:50%;border:none;background:var(--teal);color:#fff;font-size:16px;display:flex;align-items:center;justify-content:center;cursor:pointer;}
+  .tts-btn:active{background:var(--teal-dark);}
+
+  .vocab-grid{display:grid;grid-template-columns:1fr 1fr;gap:8px;}
+  .vocab-card{background:#FAF6EF;border-radius:12px;padding:10px;text-align:center;}
+  .vocab-card .es{font-family:'Fraunces',serif;font-weight:600;font-size:15px;}
+  .vocab-card .cz{font-size:12px;color:#6b7680;margin:2px 0 6px;}
+  .vocab-card .tts-btn{width:30px;height:30px;font-size:13px;margin:0 auto;}
+
+  .info-box{border-left:3px solid var(--gold);background:#FFFBF0;border-radius:0 10px 10px 0;padding:10px 12px;font-size:14px;line-height:1.5;}
+  .info-box .it{font-weight:700;margin-bottom:4px;display:block;}
+
+  .variation{font-size:14px;padding:8px 0;border-bottom:1px dashed var(--line);}
+  .variation:last-child{border-bottom:none;}
+
+  .srs-btn{display:block;width:100%;margin-top:18px;padding:14px;border:none;border-radius:14px;background:var(--coral);color:#fff;font-weight:700;font-size:15px;cursor:pointer;}
+  .srs-btn:active{background:var(--coral-dark);}
+  .srs-count{font-size:12px;text-align:center;margin-top:6px;color:#8b95a0;}
+
+  /* Side drawer */
+  .overlay{position:fixed;inset:0;background:rgba(20,25,30,.4);opacity:0;pointer-events:none;transition:opacity .2s;z-index:20;}
+  .overlay.open{opacity:1;pointer-events:auto;}
+  .drawer{position:fixed;top:0;right:0;bottom:0;width:88%;max-width:400px;background:var(--cream);transform:translateX(100%);transition:transform .25s;z-index:21;display:flex;flex-direction:column;padding-top:env(safe-area-inset-top);}
+  .drawer.open{transform:translateX(0);}
+  .drawer-head{display:flex;align-items:center;justify-content:space-between;padding:14px 16px;border-bottom:1px solid var(--line);}
+  .drawer-head h2{font-size:16px;margin:0;font-family:'Fraunces',serif;}
+  .close-btn{background:none;border:none;font-size:20px;cursor:pointer;color:var(--ink);}
+  .tabs{display:flex;overflow-x:auto;gap:4px;padding:10px 12px;border-bottom:1px solid var(--line);}
+  .tab{flex:0 0 auto;padding:8px 12px;border-radius:20px;background:var(--paper);font-size:12px;font-weight:600;border:1px solid var(--line);cursor:pointer;white-space:nowrap;}
+  .tab.active{background:var(--teal);color:#fff;border-color:var(--teal);}
+  .tab-content{flex:1;overflow-y:auto;padding:14px 16px 30px;}
+  .search-box{width:100%;padding:10px 12px;border-radius:10px;border:1px solid var(--line);font-size:14px;margin-bottom:12px;font-family:'Inter',sans-serif;}
+  .day-group-label{font-size:11px;text-transform:uppercase;color:#8b95a0;font-weight:700;margin:14px 0 6px;}
+
+  /* Flashcard modal */
+  .flash-overlay{position:fixed;inset:0;background:rgba(20,25,30,.55);display:none;align-items:center;justify-content:center;z-index:30;padding:20px;}
+  .flash-overlay.open{display:flex;}
+  .flashcard{background:var(--paper);border-radius:20px;padding:28px 20px;width:100%;max-width:380px;text-align:center;}
+  .flashcard .es{font-family:'Fraunces',serif;font-size:24px;font-weight:700;margin-bottom:10px;}
+  .flashcard .cz{font-size:15px;color:#6b7680;margin-bottom:18px;min-height:20px;}
+  .flash-tts{width:48px;height:48px;border-radius:50%;border:none;background:var(--teal);color:#fff;font-size:20px;margin-bottom:18px;cursor:pointer;}
+  .flash-actions{display:flex;gap:10px;}
+  .flash-actions button{flex:1;padding:14px;border:none;border-radius:12px;font-weight:700;font-size:14px;cursor:pointer;}
+  .btn-no{background:#F0EBE2;color:var(--ink);}
+  .btn-yes{background:var(--teal);color:#fff;}
+  .flash-progress{font-size:12px;color:#8b95a0;margin-bottom:10px;}
+  .flash-done{font-family:'Fraunces',serif;font-size:19px;padding:20px 0;}
+</style>
+</head>
+<body>
+
+<header>
+  <div class="top">
+    <h1>Španělsky <em>s Eli</em> 🌱</h1>
+    <button class="menu-btn" id="menuBtn">☰</button>
+  </div>
+</header>
+
+<div class="wrap">
+  <div class="day-row" id="dayRow"></div>
+  <div id="lessonArea"></div>
+</div>
+
+<div class="overlay" id="overlay"></div>
+<div class="drawer" id="drawer">
+  <div class="drawer-head">
+    <h2>Poznámkový blok</h2>
+    <button class="close-btn" id="closeDrawer">✕</button>
+  </div>
+  <div class="tabs" id="tabs">
+    <button class="tab active" data-tab="slovnik">🧺 Slovník</button>
+    <button class="tab" data-tab="gramatika">📐 Gramatika</button>
+    <button class="tab" data-tab="slovesa">🔁 Slovesa</button>
+    <button class="tab" data-tab="vyslovnost">🔊 Výslovnost</button>
+    <button class="tab" data-tab="fraze">🆘 Fráze</button>
+    <button class="tab" data-tab="zvyklosti">🇪🇸 Zvyklosti</button>
+  </div>
+  <div class="tab-content" id="tabContent"></div>
+</div>
+
+<div class="flash-overlay" id="flashOverlay">
+  <div class="flashcard" id="flashcard"></div>
+</div>
+
+<script>
+const LS_PROGRESS = 'eli_progress';
+const LS_SRS = 'eli_srs';
+const LS_LAST_DAY = 'eli_last_day';
+const LEITNER_INTERVALS = [1,3,7,14,30]; // days
+
+let DATA = null;
+let currentDay = 1;
+let spanishVoice = null;
+
+// ---------- TTS ----------
+function pickVoice(){
+  const voices = speechSynthesis.getVoices();
+  spanishVoice = voices.find(v => v.lang === 'es-ES')
+    || voices.find(v => v.lang && v.lang.startsWith('es'))
+    || null;
+}
+if ('speechSynthesis' in window){
+  pickVoice();
+  speechSynthesis.onvoiceschanged = pickVoice;
+}
+function speak(text){
+  if (!('speechSynthesis' in window)) { alert('Tenhle prohlížeč bohužel neumí přehrávat řeč.'); return; }
+  speechSynthesis.cancel();
+  const u = new SpeechSynthesisUtterance(text);
+  if (spanishVoice) u.voice = spanishVoice;
+  u.lang = 'es-ES';
+  u.rate = 0.85;
+  speechSynthesis.speak(u);
+}
+
+// ---------- storage helpers ----------
+function loadJSON(key, fallback){
+  try { const v = localStorage.getItem(key); return v ? JSON.parse(v) : fallback; }
+  catch(e){ return fallback; }
+}
+function saveJSON(key, val){ localStorage.setItem(key, JSON.stringify(val)); }
+
+function getProgress(){ return loadJSON(LS_PROGRESS, { completedDays: [] }); }
+function markDayDone(day){
+  const p = getProgress();
+  if (!p.completedDays.includes(day)) p.completedDays.push(day);
+  saveJSON(LS_PROGRESS, p);
+  localStorage.setItem(LS_LAST_DAY, String(day));
+}
+
+function getSRS(){ return loadJSON(LS_SRS, {}); }
+function saveSRS(srs){ saveJSON(LS_SRS, srs); }
+
+function todayStr(){ return new Date().toISOString().slice(0,10); }
+function addDays(dateStr, n){
+  const d = new Date(dateStr);
+  d.setDate(d.getDate()+n);
+  return d.toISOString().slice(0,10);
+}
+
+function buildPool(){
+  // vocab:DAY:INDEX + phrase:CAT:INDEX, only from 'new' lessons
+  const srs = getSRS();
+  let changed = false;
+  DATA.lessons.filter(l => l.type === 'new').forEach(l=>{
+    (l.vocab||[]).forEach((v,i)=>{
+      const id = `vocab:${l.day}:${i}`;
+      if (!srs[id]){ srs[id] = {box:0, due: todayStr(), es:v.es, cz:v.cz}; changed = true; }
+    });
+  });
+  Object.keys(DATA.phrasebook?.categories||{}).forEach(cat=>{
+    (DATA.phrasebook.categories[cat]||[]).forEach((p,i)=>{
+      const id = `phrase:${cat}:${i}`;
+      if (!srs[id]){ srs[id] = {box:0, due: todayStr(), es:p.es, cz:p.cz}; changed = true; }
+    });
+  });
+  if (changed) saveSRS(srs);
+}
+
+function dueCards(){
+  const srs = getSRS();
+  const t = todayStr();
+  return Object.entries(srs).filter(([id,c]) => c.due <= t).map(([id,c])=>({id,...c}));
+}
+
+// ---------- rendering: day row ----------
+function renderDayRow(){
+  const row = document.getElementById('dayRow');
+  const progress = getProgress();
+  row.innerHTML = '';
+  DATA.lessons.forEach(l=>{
+    const pill = document.createElement('div');
+    pill.className = 'day-pill' + (l.day===currentDay ? ' active':'') + (progress.completedDays.includes(l.day) ? ' done':'');
+    pill.innerHTML = `<div class="e">${l.emoji||'📘'}</div><div class="n">Den ${l.day}</div>`;
+    pill.onclick = ()=>{ currentDay = l.day; render(); };
+    row.appendChild(pill);
+  });
+}
+
+// ---------- rendering: lesson ----------
+function lineRow(es, cz){
+  const div = document.createElement('div');
+  div.className = 'line';
+  div.innerHTML = `<div class="txt"><div class="es">${es}</div><div class="cz">${cz}</div></div><button class="tts-btn">🔊</button>`;
+  div.querySelector('.tts-btn').onclick = ()=>speak(es);
+  return div;
+}
+
+function render(){
+  renderDayRow();
+  const l = DATA.lessons.find(x=>x.day===currentDay);
+  const area = document.getElementById('lessonArea');
+  area.innerHTML = '';
+
+  if (!l){ area.innerHTML = '<div class="card">Tenhle den ještě není připravený.</div>'; return; }
+
+  if (l.type === 'review'){
+    const due = dueCards();
+    area.innerHTML = `<div class="card">
+      <div class="lesson-title">${l.emoji||'🔁'} ${l.title}</div>
+      <p class="lesson-sub">Den opakování — projdi si kartičky, co se ti přihlásily k opakování.</p>
+      <div class="encourage">Klidně si to říkej i nahlas — nikdo tě tu neslyší 😉</div>
+      <button class="srs-btn" id="startReview">Spustit opakování (${due.length})</button>
+      <div class="srs-count">${due.length===0 ? 'Zatím nic k opakování — vrať se sem zítra.' : ''}</div>
+    </div>`;
+    document.getElementById('startReview').onclick = startReview;
+    return;
+  }
+
+  const card = document.createElement('div');
+  card.className = 'card';
+  card.innerHTML = `
+    <div class="lesson-title">${l.emoji||''} ${l.title}</div>
+    <p class="lesson-sub">Den ${l.day}</p>
+    <div class="encourage">💬 Zkus si každou větu zopakovat nahlas po poslechu — je to jen mezi tebou a telefonem.</div>
+    <div class="section-label">Dialog</div>
+    <div id="dlg"></div>
+    <div class="section-label">Slovíčka</div>
+    <div class="vocab-grid" id="voc"></div>
+  `;
+  const dlg = card.querySelector('#dlg');
+  (l.dialogue||[]).forEach(d=> dlg.appendChild(lineRow(d.es, d.cz)));
+
+  const voc = card.querySelector('#voc');
+  (l.vocab||[]).forEach(v=>{
+    const div = document.createElement('div');
+    div.className = 'vocab-card';
+    div.innerHTML = `<div class="es">${v.es}</div><div class="cz">${v.cz}</div><button class="tts-btn">🔊</button>`;
+    div.querySelector('.tts-btn').onclick = ()=>speak(v.es);
+    voc.appendChild(div);
+  });
+
+  if (l.grammar){
+    const g = document.createElement('div');
+    g.className='section-label'; g.textContent='Gramatika';
+    card.appendChild(g);
+    const box = document.createElement('div');
+    box.className='info-box';
+    box.innerHTML = `<span class="it">${l.grammar.title}</span>${l.grammar.text}`;
+    card.appendChild(box);
+  }
+
+  if (l.pronunciation){
+    const p = document.createElement('div');
+    p.className='section-label'; p.textContent='Výslovnost';
+    card.appendChild(p);
+    const box = document.createElement('div');
+    box.className='info-box';
+    box.style.borderLeftColor = 'var(--teal)';
+    box.innerHTML = `<span class="it">${l.pronunciation.title}</span>${l.pronunciation.text}`;
+    card.appendChild(box);
+  }
+
+  if (l.variations && l.variations.length){
+    const vlab = document.createElement('div');
+    vlab.className='section-label'; vlab.textContent='Co ještě můžeš říct';
+    card.appendChild(vlab);
+    l.variations.forEach(v=>{
+      const row = document.createElement('div');
+      row.className='variation';
+      row.textContent = v;
+      card.appendChild(row);
+    });
+  }
+
+  const doneBtn = document.createElement('button');
+  doneBtn.className='srs-btn';
+  doneBtn.textContent='✓ Mám hotovo';
+  doneBtn.onclick = ()=>{ markDayDone(l.day); render(); };
+  card.appendChild(doneBtn);
+
+  area.appendChild(card);
+}
+
+// ---------- flashcard review ----------
+let reviewQueue = [];
+let reviewIndex = 0;
+
+function startReview(){
+  reviewQueue = dueCards();
+  reviewIndex = 0;
+  if (reviewQueue.length===0){ return; }
+  document.getElementById('flashOverlay').classList.add('open');
+  showFlash();
+}
+function showFlash(){
+  const box = document.getElementById('flashcard');
+  if (reviewIndex >= reviewQueue.length){
+    box.innerHTML = `<div class="flash-done">Hotovo! 🎉<br><span style="font-size:14px;color:#6b7680;">Zvládla jsi ${reviewQueue.length} kartiček.</span></div>
+      <button class="srs-btn" id="closeFlash">Zavřít</button>`;
+    document.getElementById('closeFlash').onclick = ()=>{ document.getElementById('flashOverlay').classList.remove('open'); render(); };
+    return;
+  }
+  const c = reviewQueue[reviewIndex];
+  box.innerHTML = `
+    <div class="flash-progress">Kartička ${reviewIndex+1} / ${reviewQueue.length}</div>
+    <div class="es">${c.es}</div>
+    <div class="cz" id="flashCz" style="visibility:hidden">${c.cz}</div>
+    <button class="flash-tts" id="flashTts">🔊</button>
+    <button class="srs-btn" id="revealBtn" style="margin-top:0;">Ukázat překlad</button>
+    <div class="flash-actions" id="flashActions" style="display:none;margin-top:14px;">
+      <button class="btn-no" id="btnNo">Nevěděla jsem</button>
+      <button class="btn-yes" id="btnYes">Věděla jsem</button>
+    </div>
+  `;
+  document.getElementById('flashTts').onclick = ()=>speak(c.es);
+  document.getElementById('revealBtn').onclick = ()=>{
+    document.getElementById('flashCz').style.visibility='visible';
+    document.getElementById('revealBtn').style.display='none';
+    document.getElementById('flashActions').style.display='flex';
+  };
+  document.getElementById('btnNo').onclick = ()=>answer(false);
+  document.getElementById('btnYes').onclick = ()=>answer(true);
+}
+function answer(knew){
+  const c = reviewQueue[reviewIndex];
+  const srs = getSRS();
+  const rec = srs[c.id];
+  if (rec){
+    rec.box = knew ? Math.min(rec.box+1, LEITNER_INTERVALS.length-1) : 0;
+    rec.due = addDays(todayStr(), LEITNER_INTERVALS[rec.box]);
+    saveSRS(srs);
+  }
+  reviewIndex++;
+  showFlash();
+}
+
+// ---------- side drawer ----------
+function openDrawer(){
+  document.getElementById('overlay').classList.add('open');
+  document.getElementById('drawer').classList.add('open');
+  renderTab('slovnik');
+}
+function closeDrawerFn(){
+  document.getElementById('overlay').classList.remove('open');
+  document.getElementById('drawer').classList.remove('open');
+}
+document.getElementById('menuBtn').onclick = openDrawer;
+document.getElementById('closeDrawer').onclick = closeDrawerFn;
+document.getElementById('overlay').onclick = closeDrawerFn;
+
+document.getElementById('tabs').addEventListener('click', e=>{
+  const btn = e.target.closest('.tab');
+  if (!btn) return;
+  document.querySelectorAll('.tab').forEach(t=>t.classList.remove('active'));
+  btn.classList.add('active');
+  renderTab(btn.dataset.tab);
+});
+
+function renderTab(tab){
+  const el = document.getElementById('tabContent');
+  el.innerHTML = '';
+  const newLessons = DATA.lessons.filter(l=>l.type==='new');
+
+  if (tab === 'slovnik'){
+    const search = document.createElement('input');
+    search.className='search-box';
+    search.placeholder='Hledat slovíčko...';
+    el.appendChild(search);
+    const listWrap = document.createElement('div');
+    el.appendChild(listWrap);
+    function draw(filter){
+      listWrap.innerHTML='';
+      newLessons.forEach(l=>{
+        const items = (l.vocab||[]).filter(v => !filter || v.es.toLowerCase().includes(filter) || v.cz.toLowerCase().includes(filter));
+        if (!items.length) return;
+        const lab = document.createElement('div'); lab.className='day-group-label'; lab.textContent = `Den ${l.day} — ${l.title}`;
+        listWrap.appendChild(lab);
+        items.forEach(v=> listWrap.appendChild(lineRow(v.es, v.cz)));
+      });
+    }
+    draw('');
+    search.oninput = ()=>draw(search.value.toLowerCase());
+  }
+
+  if (tab === 'gramatika'){
+    newLessons.filter(l=>l.grammar).forEach(l=>{
+      const lab = document.createElement('div'); lab.className='day-group-label'; lab.textContent = `Den ${l.day}`;
+      el.appendChild(lab);
+      const box = document.createElement('div'); box.className='info-box'; box.style.marginBottom='10px';
+      box.innerHTML = `<span class="it">${l.grammar.title}</span>${l.grammar.text}`;
+      el.appendChild(box);
+    });
+  }
+
+  if (tab === 'slovesa'){
+    (DATA.verbs?.list||[]).forEach(v=>{
+      const box = document.createElement('div');
+      box.className='card'; box.style.margin='0 0 12px';
+      const forms = Object.entries(v.forms||{}).map(([k,val])=>`<div style="display:flex;justify-content:space-between;padding:3px 0;"><span style="color:#8b95a0">${k}</span><b>${val}</b></div>`).join('');
+      box.innerHTML = `<div class="lesson-title" style="font-size:17px;">${v.infinitive} <span style="font-size:13px;color:#8b95a0;font-family:'Inter',sans-serif;">— ${v.translation}</span></div>${forms}`;
+      if (v.example){
+        const ex = document.createElement('div'); ex.style.marginTop='8px';
+        ex.appendChild(lineRow(v.example.es, v.example.cz));
+        box.appendChild(ex);
+      }
+      el.appendChild(box);
+    });
+  }
+
+  if (tab === 'vyslovnost'){
+    newLessons.filter(l=>l.pronunciation).forEach(l=>{
+      const lab = document.createElement('div'); lab.className='day-group-label'; lab.textContent = `Den ${l.day}`;
+      el.appendChild(lab);
+      const box = document.createElement('div'); box.className='info-box'; box.style.marginBottom='10px'; box.style.borderLeftColor='var(--teal)';
+      box.innerHTML = `<span class="it">${l.pronunciation.title}</span>${l.pronunciation.text}`;
+      el.appendChild(box);
+    });
+  }
+
+  if (tab === 'fraze'){
+    Object.entries(DATA.phrasebook?.categories||{}).forEach(([cat, items])=>{
+      const lab = document.createElement('div'); lab.className='day-group-label'; lab.textContent = cat;
+      el.appendChild(lab);
+      items.forEach(p=> el.appendChild(lineRow(p.es, p.cz)));
+    });
+  }
+
+  if (tab === 'zvyklosti'){
+    Object.entries(DATA.customs?.categories||{}).forEach(([cat, text])=>{
+      const lab = document.createElement('div'); lab.className='day-group-label'; lab.textContent = cat;
+      el.appendChild(lab);
+      const box = document.createElement('div'); box.className='info-box'; box.style.marginBottom='10px';
+      box.innerHTML = text;
+      el.appendChild(box);
+    });
+  }
+}
+
+// ---------- init ----------
+fetch('lessons.json').then(r=>r.json()).then(data=>{
+  DATA = data;
+  buildPool();
+  const lastDay = parseInt(localStorage.getItem(LS_LAST_DAY)||'1',10);
+  currentDay = DATA.lessons.find(l=>l.day===lastDay) ? lastDay : DATA.lessons[0].day;
+  render();
+}).catch(err=>{
+  document.getElementById('lessonArea').innerHTML = '<div class="card">Nepodařilo se načíst lessons.json 😕</div>';
+  console.error(err);
+});
+</script>
+</body>
+</html>
