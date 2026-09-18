@@ -118,6 +118,13 @@
   .btn-yes{background:var(--teal);color:#fff;}
   .flash-progress{font-size:12px;color:#8b95a0;margin-bottom:10px;}
   .flash-done{font-family:'Fraunces',serif;font-size:19px;padding:20px 0;}
+
+  .bonus-overlay{position:fixed;inset:0;background:rgba(20,25,30,.55);display:none;align-items:center;justify-content:center;z-index:31;padding:20px;}
+  .bonus-overlay.open{display:flex;}
+  .bonus-card{background:var(--paper);border-radius:20px;padding:26px 20px;width:100%;max-width:400px;text-align:center;border-top:6px solid var(--gold);}
+  .bonus-label{font-size:12px;font-weight:700;color:#C89020;text-transform:uppercase;letter-spacing:.06em;margin-bottom:10px;}
+  .bonus-title{font-family:'Fraunces',serif;font-size:19px;font-weight:700;margin-bottom:10px;}
+  .bonus-text{font-size:14px;line-height:1.55;color:#3a4048;margin-bottom:20px;text-align:left;}
 </style>
 </head>
 <body>
@@ -146,6 +153,7 @@
   </div>
   <div class="tabs" id="tabs">
     <button class="tab active" data-tab="slovnik">🧺 Slovník</button>
+    <button class="tab" data-tab="zajmena">🔤 Zájmena</button>
     <button class="tab" data-tab="gramatika">📐 Gramatika</button>
     <button class="tab" data-tab="slovesa">🔁 Slovesa</button>
     <button class="tab" data-tab="vyslovnost">🔊 Výslovnost</button>
@@ -157,6 +165,10 @@
 
 <div class="flash-overlay" id="flashOverlay">
   <div class="flashcard" id="flashcard"></div>
+</div>
+
+<div class="bonus-overlay" id="bonusOverlay">
+  <div class="bonus-card" id="bonusCard"></div>
 </div>
 
 <script>
@@ -272,6 +284,24 @@ function startBigReview(days){
   showFlash();
 }
 
+function showBonusSurprise(){
+  const entries = Object.entries(DATA.customs?.categories || {});
+  if (!entries.length){ render(); return; }
+  const [title, text] = entries[Math.floor(Math.random() * entries.length)];
+  const card = document.getElementById('bonusCard');
+  card.innerHTML = `
+    <div class="bonus-label">🎁 Bonus za splněnou lekci!</div>
+    <div class="bonus-title">${title}</div>
+    <div class="bonus-text">${text}</div>
+    <button class="srs-btn" id="closeBonus">Super, díky!</button>
+  `;
+  document.getElementById('bonusOverlay').classList.add('open');
+  document.getElementById('closeBonus').onclick = ()=>{
+    document.getElementById('bonusOverlay').classList.remove('open');
+    render();
+  };
+}
+
 // ---------- rendering: day row ----------
 function renderDayRow(){
   const row = document.getElementById('dayRow');
@@ -336,7 +366,7 @@ function render(){
     doneBtn2.className='srs-btn';
     doneBtn2.style.background = 'var(--teal)';
     doneBtn2.textContent='✓ Mám hotovo';
-    doneBtn2.onclick = ()=>{ markDayDone(l.day); render(); };
+    doneBtn2.onclick = ()=>{ markDayDone(l.day); showBonusSurprise(); };
     area.querySelector('.card').appendChild(doneBtn2);
     return;
   }
@@ -402,7 +432,7 @@ function render(){
   const doneBtn = document.createElement('button');
   doneBtn.className='srs-btn';
   doneBtn.textContent='✓ Mám hotovo';
-  doneBtn.onclick = ()=>{ markDayDone(l.day); render(); };
+  doneBtn.onclick = ()=>{ markDayDone(l.day); showBonusSurprise(); };
   card.appendChild(doneBtn);
 
   area.appendChild(card);
@@ -507,6 +537,22 @@ function renderTab(tab){
     }
     draw('');
     search.oninput = ()=>draw(search.value.toLowerCase());
+  }
+
+  if (tab === 'zajmena'){
+    if (DATA.pronouns?.intro){
+      const box = document.createElement('div');
+      box.className='info-box'; box.style.marginBottom='14px';
+      box.innerHTML = DATA.pronouns.intro;
+      el.appendChild(box);
+    }
+    (DATA.pronouns?.list||[]).forEach(p=> el.appendChild(lineRow(p.es, p.cz)));
+    if (DATA.pronouns?.note){
+      const note = document.createElement('div');
+      note.className='info-box'; note.style.marginTop='14px'; note.style.borderLeftColor='var(--teal)';
+      note.innerHTML = DATA.pronouns.note;
+      el.appendChild(note);
+    }
   }
 
   if (tab === 'gramatika'){
