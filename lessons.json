@@ -1,0 +1,68 @@
+{
+  "lessons": [
+    {
+      "day": 1,
+      "title": "¡Hola! Jak se jmenuješ?",
+      "theme": "zaklady",
+      "emoji": "👋",
+      "type": "new",
+      "dialogue": [
+        { "es": "¡Hola! ¿Cómo te llamas?", "cz": "Ahoj! Jak se jmenuješ?" },
+        { "es": "Me llamo Eli. ¿Y tú?", "cz": "Jmenuji se Eli. A ty?" },
+        { "es": "Soy Sofía. ¿De dónde eres?", "cz": "Jsem Sofía. Odkud jsi?" },
+        { "es": "Soy de la República Checa. ¡Mucho gusto!", "cz": "Jsem z České republiky. Těší mě!" }
+      ],
+      "vocab": [
+        { "es": "hola", "cz": "ahoj" },
+        { "es": "me llamo...", "cz": "jmenuji se..." },
+        { "es": "¿de dónde eres?", "cz": "odkud jsi?" },
+        { "es": "mucho gusto", "cz": "těší mě" }
+      ],
+      "grammar": {
+        "title": "Zatím žádná teorie 🌱",
+        "text": "Tyhle věty si prostě zapamatuj celé, jako hotovou frázi. Proč to gramaticky tak je, na to dojde později — teď je hlavní, že to umíš říct."
+      },
+      "pronunciation": {
+        "title": "Písmeno „ll“",
+        "text": "„ll“ se čte jako české „j“. „Llamo“ = „JA-mo“, ne „lamo“. Takže „me llamo“ zní jako „me JA-mo“."
+      },
+      "variations": [
+        "¿Qué tal? (Jak se máš? — neformální pozdrav navíc.)",
+        "Encantada. (Těší mě — když to říká holka.)",
+        "Soy checa. (Jsem Češka.)",
+        "¡Hasta luego! (Zatím ahoj! — na rozloučenou.)"
+      ]
+    }
+  ],
+  "phrasebook": {
+    "categories": {
+      "Pozdravy a loučení": [
+        { "es": "¡Hola!", "cz": "Ahoj!" },
+        { "es": "¡Buenos días!", "cz": "Dobré ráno/dopoledne!" },
+        { "es": "¡Hasta luego!", "cz": "Zatím ahoj!" },
+        { "es": "¡Adiós!", "cz": "Sbohem!" }
+      ]
+    }
+  },
+  "customs": {
+    "categories": {
+      "Tykání mezi teenagery": "Mezi vrstevníky se ve Španělsku i Latinské Americe automaticky tyká (tú) — na rozdíl od Olivovštiny (obchodní appka), tady se nikdy neřeší vykání. S dospělými cizinci (učitel, rodič kamarádky) se zdvořilost řeší jinak, ale to appka řeší až později."
+    }
+  },
+  "verbs": {
+    "list": [
+      {
+        "infinitive": "llamarse",
+        "translation": "jmenovat se",
+        "forms": { "yo": "me llamo", "tú": "te llamas", "él/ella": "se llama" },
+        "example": { "es": "Me llamo Eli.", "cz": "Jmenuji se Eli." }
+      },
+      {
+        "infinitive": "ser",
+        "translation": "být (kdo/odkud jsem)",
+        "forms": { "yo": "soy", "tú": "eres", "él/ella": "es" },
+        "example": { "es": "Soy de la República Checa.", "cz": "Jsem z České republiky." }
+      }
+    ]
+  }
+}
