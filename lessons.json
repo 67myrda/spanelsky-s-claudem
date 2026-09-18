@@ -129,6 +129,136 @@
       "isSummary": true,
       "summaryOf": [1, 3, 5],
       "reviewAll": true
+    },
+    {
+      "day": 8,
+      "title": "Ve škole",
+      "theme": "skola",
+      "emoji": "🎒",
+      "type": "new",
+      "dialogue": [
+        { "es": "¿A qué hora empiezan las clases?", "cz": "V kolik hodin začínají hodiny?" },
+        { "es": "Empiezan a las ocho.", "cz": "Začínají v osm." },
+        { "es": "¿Cuál es tu asignatura favorita?", "cz": "Jaký je tvůj oblíbený předmět?" },
+        { "es": "Me gusta el español, ¡claro!", "cz": "Líbí se mi španělština, jasně!" }
+      ],
+      "vocab": [
+        { "es": "la clase", "cz": "hodina / třída" },
+        { "es": "el instituto", "cz": "střední škola" },
+        { "es": "la asignatura", "cz": "školní předmět" },
+        { "es": "me gusta...", "cz": "líbí se mi..." }
+      ],
+      "grammar": {
+        "title": "„Me gusta“ (líbí se mi)",
+        "text": "Španělština to říká obráceně než čeština — doslova „mně se líbí to“. Zatím to stačí umět použít jako hotový vzorec: me gusta + věc, co se ti líbí."
+      },
+      "pronunciation": {
+        "title": "„C“ před e/i",
+        "text": "Ve standardní (kastilské) španělštině se „c“ před e/i čte jako anglické „th“ v slově „think“. Takže „gracias“ zní „GRA-thias“, ne „GRA-sias“."
+      },
+      "variations": [
+        "¿Cuántas clases tienes hoy? (Kolik máš dneska hodin?)",
+        "Voy al instituto en autobús. (Do školy jezdím autobusem.)",
+        "Mi asignatura favorita es la música. (Můj oblíbený předmět je hudba.)",
+        "No me gustan las matemáticas. (Nebaví mě matika.)"
+      ]
+    },
+    {
+      "day": 9,
+      "title": "Opakování: Škola",
+      "theme": "skola",
+      "emoji": "🔁",
+      "type": "review"
+    },
+    {
+      "day": 10,
+      "title": "Kamarádi",
+      "theme": "kamaradi",
+      "emoji": "👭",
+      "type": "new",
+      "dialogue": [
+        { "es": "¿Tienes muchos amigos en el instituto?", "cz": "Máš na gymplu hodně kamarádů?" },
+        { "es": "Tengo una mejor amiga. Se llama Klára.", "cz": "Mám nejlepší kamarádku. Jmenuje se Klára." },
+        { "es": "¿Cómo es ella?", "cz": "Jaká je?" },
+        { "es": "Es muy simpática y divertida.", "cz": "Je moc milá a zábavná." }
+      ],
+      "vocab": [
+        { "es": "mi mejor amigo/a", "cz": "můj/moje nejlepší kamarád/ka" },
+        { "es": "simpático/a", "cz": "milý/á, sympatický/á" },
+        { "es": "divertido/a", "cz": "zábavný/á" },
+        { "es": "¿cómo es?", "cz": "jaký/á je (o povaze)" }
+      ],
+      "grammar": {
+        "title": "Přídavná jména na -o / -a",
+        "text": "Přídavná jména končící na -o mění koncovku podle toho, o kom mluvíš: simpático (kluk) → simpática (holka). Když mluvíš sama o sobě, používej vždy -a formu."
+      },
+      "pronunciation": {
+        "title": "Jedno „r“ vs. dvojité „rr“",
+        "text": "„pero“ (ale) se čte s jedním krátkým ťuknutím jazyka. „Perro“ (pes) má tvrdé, drnčivé „rr“. Je to jediný rozdíl mezi těmi dvěma slovy, tak si na něj dej pozor."
+      },
+      "variations": [
+        "Es muy inteligente. (Je moc chytrý/á.)",
+        "Somos amigas desde primaria. (Jsme kamarádky od základky.)",
+        "Él es un poco tímido. (On je trochu stydlivý.)",
+        "Tengo amigos también fuera del instituto. (Mám kamarády i mimo školu.)"
+      ]
+    },
+    {
+      "day": 11,
+      "title": "Opakování: Kamarádi",
+      "theme": "kamaradi",
+      "emoji": "🔁",
+      "type": "review"
+    },
+    {
+      "day": 12,
+      "title": "Jaká jsem",
+      "theme": "popis",
+      "emoji": "🪞",
+      "type": "new",
+      "dialogue": [
+        { "es": "¿Cómo eres físicamente?", "cz": "Jak vypadáš?" },
+        { "es": "Soy bajita, con el pelo castaño.", "cz": "Jsem menší postavy, s hnědými vlasy." },
+        { "es": "¿Y de carácter, cómo eres?", "cz": "A povahou, jaká jsi?" },
+        { "es": "Soy un poco tímida al principio, pero luego soy muy abierta.", "cz": "Zpočátku jsem trochu stydlivá, ale pak jsem hodně otevřená." }
+      ],
+      "vocab": [
+        { "es": "el pelo castaño", "cz": "hnědé vlasy" },
+        { "es": "bajito/a, alto/a", "cz": "menší postavy, vysoký/á" },
+        { "es": "tímido/a", "cz": "stydlivý/á" },
+        { "es": "abierto/a", "cz": "otevřený/á (povahou)" }
+      ],
+      "grammar": {
+        "title": "„Un poco“ + přídavné jméno",
+        "text": "„Un poco“ (trochu) můžeš přidat před jakékoliv přídavné jméno, aby to znělo mírněji: un poco tímida = trochu stydlivá, ne úplně. Šikovná berlička, když si nejsi jistá, jak silně to říct."
+      },
+      "pronunciation": {
+        "title": "Kde je přízvuk",
+        "text": "Základní pravidlo: slova končící na samohlásku, -n nebo -s mají přízvuk na předposlední slabice (tímida by tedy „normálně“ měla přízvuk na -mi-, ale ten čárkový znak nad í říká: pozor, výjimka, přízvuk je tady!). Čárka nad písmenem = vždy signál, kde je důraz."
+      },
+      "variations": [
+        "Tengo los ojos verdes. (Mám zelené oči.)",
+        "Soy bastante alta. (Jsem docela vysoká.)",
+        "De carácter, soy muy curiosa. (Povahou jsem hodně zvídavá.)",
+        "Con amigos, soy muy habladora. (S kamarády jsem hodně upovídaná.)"
+      ]
+    },
+    {
+      "day": 13,
+      "title": "Opakování: Jaká jsem",
+      "theme": "popis",
+      "emoji": "🔁",
+      "type": "review"
+    },
+    {
+      "day": 14,
+      "title": "Shrnutí: Škola, kamarádi, já",
+      "theme": "skola",
+      "emoji": "🎉",
+      "type": "summary",
+      "isSummary": true,
+      "summaryOf": [8, 10, 12],
+      "reviewAll": true
     }
   ],
   "phrasebook": {
