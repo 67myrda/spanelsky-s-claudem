@@ -162,6 +162,7 @@
     <button class="tab" data-tab="vyslovnost">🔊 Výslovnost</button>
     <button class="tab" data-tab="fraze">🆘 Fráze</button>
     <button class="tab" data-tab="zvyklosti">🇪🇸 Zvyklosti</button>
+    <button class="tab" data-tab="vysvetlivky">❓ Vysvětlivky</button>
   </div>
   <div class="tab-content" id="tabContent"></div>
 </div>
@@ -241,6 +242,19 @@ function addDays(dateStr, n){
   const d = new Date(dateStr);
   d.setDate(d.getDate()+n);
   return d.toISOString().slice(0,10);
+}
+
+function resetLessonPool(l){
+  // Když se student vrátí ke starší lekci a znovu klikne "Mám hotovo",
+  // její slovíčka se natvrdo vrátí do výchozího stavu (box 0, due dnes) —
+  // takže navazující Opakování je nabídne znovu od začátku, jako by byla nová.
+  if (!l || !l.vocab) return;
+  const srs = getSRS();
+  l.vocab.forEach((v,i)=>{
+    const id = `vocab:${l.day}:${i}`;
+    srs[id] = { box: 0, due: todayStr(), es: v.es, cz: v.cz };
+  });
+  saveSRS(srs);
 }
 
 function syncPoolWithProgress(){
@@ -444,7 +458,7 @@ function render(){
   const doneBtn = document.createElement('button');
   doneBtn.className='srs-btn';
   doneBtn.textContent='✓ Mám hotovo';
-  doneBtn.onclick = ()=>{ markDayDone(l.day); showBonusSurprise(); };
+  doneBtn.onclick = ()=>{ markDayDone(l.day); resetLessonPool(l); showBonusSurprise(); };
   card.appendChild(doneBtn);
 
   area.appendChild(card);
@@ -622,6 +636,16 @@ function renderTab(tab){
       const lab = document.createElement('div'); lab.className='day-group-label'; lab.textContent = cat;
       el.appendChild(lab);
       const box = document.createElement('div'); box.className='info-box'; box.style.marginBottom='10px';
+      box.innerHTML = text;
+      el.appendChild(box);
+    });
+  }
+
+  if (tab === 'vysvetlivky'){
+    Object.entries(DATA.help?.categories||{}).forEach(([cat, text])=>{
+      const lab = document.createElement('div'); lab.className='day-group-label'; lab.textContent = cat;
+      el.appendChild(lab);
+      const box = document.createElement('div'); box.className='info-box'; box.style.marginBottom='10px'; box.style.borderLeftColor='var(--teal)';
       box.innerHTML = text;
       el.appendChild(box);
     });
