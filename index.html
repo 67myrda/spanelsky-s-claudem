@@ -72,7 +72,7 @@
   .info-box .it{font-weight:700;margin-bottom:4px;display:block;}
 
   /* záložka Zájmena a předložky: štítky pro rychlý skok + podřádky s příklady */
-  .ref-chips{position:sticky;top:0;z-index:3;display:flex;gap:6px;overflow-x:auto;background:var(--cream);margin:-14px -16px 12px;padding:10px 16px;border-bottom:1px solid var(--line);}
+  .ref-chips{position:sticky;top:-14px;z-index:3;display:flex;gap:6px;overflow-x:auto;background:var(--cream);margin:-14px -16px 12px;padding:10px 16px;border-bottom:1px solid var(--line);}
   .ref-chip{flex:0 0 auto;padding:6px 11px;border-radius:16px;border:1px solid var(--line);background:var(--paper);font-size:12px;font-weight:600;cursor:pointer;white-space:nowrap;}
   .ref-chip:active{background:var(--teal);color:#fff;border-color:var(--teal);}
   .ref-title{font-family:'Fraunces',serif;font-size:18px;font-weight:700;margin:24px 0 8px;scroll-margin-top:60px;}
@@ -349,6 +349,11 @@ function renderDayRow(){
     pill.onclick = ()=>{ currentDay = l.day; render(); };
     row.appendChild(pill);
   });
+  const act = row.querySelector('.day-pill.active');
+  if (act){
+    const r = row.getBoundingClientRect(), a = act.getBoundingClientRect();
+    row.scrollLeft = row.scrollLeft + (a.left - r.left) - (r.width - a.width)/2;
+  }
 }
 
 // ---------- rendering: lesson ----------
@@ -378,6 +383,12 @@ function render(){
       <div class="srs-count">${due.length===0 ? 'Zatím nic k opakování — vrať se sem zítra.' : ''}</div>
     </div>`;
     document.getElementById('startReview').onclick = startReview;
+    const doneBtnR = document.createElement('button');
+    doneBtnR.className='srs-btn';
+    doneBtnR.style.background = 'var(--teal)';
+    doneBtnR.textContent='✓ Mám hotovo';
+    doneBtnR.onclick = ()=>{ markDayDone(l.day); showBonusSurprise(); };
+    area.querySelector('.card').appendChild(doneBtnR);
     return;
   }
 
@@ -537,6 +548,7 @@ function answer(knew){
 function openDrawer(){
   document.getElementById('overlay').classList.add('open');
   document.getElementById('drawer').classList.add('open');
+  document.querySelectorAll('.tab').forEach(t=>t.classList.toggle('active', t.dataset.tab==='slovnik'));
   renderTab('slovnik');
 }
 function closeDrawerFn(){
@@ -691,8 +703,11 @@ function renderTab(tab){
 }
 
 function firstIncompleteDay(){
+  // První nedokončený den. Dny Opakování, které jsou už "za" posledním dokončeným dnem
+  // (přeskočené), se nepočítají — appka by jinak uvízla na prvním nedokončeném Opakování.
   const p = getProgress();
-  const found = DATA.lessons.find(l => !p.completedDays.includes(l.day));
+  const lastDone = p.completedDays.length ? Math.max(...p.completedDays) : 0;
+  const found = DATA.lessons.find(l => !p.completedDays.includes(l.day) && (l.type !== 'review' || l.day > lastDone));
   return found ? found.day : DATA.lessons[DATA.lessons.length - 1].day;
 }
 
