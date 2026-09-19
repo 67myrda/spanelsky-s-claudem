@@ -558,6 +558,17 @@
       "Tapas — jídlo, které se sdílí": "Tapas nejsou jedno konkrétní jídlo, ale styl stolování — malé porce (olivy, tortilla, jamón...), které si skupina lidí objedná společně doprostřed stolu a všichni si berou. Chodit „de tapas“ (na tapas) je společenská záležitost, ne rychlé občerstvení."
     }
   },
+  "help": {
+    "categories": {
+      "Jak appka funguje": "Nahoře jsou dny — každý je buď nová lekce (dialog, slovíčka, gramatika, výslovnost, pár vět navíc), den opakování, nebo velké shrnutí. Klikáš na den, projdeš si obsah, dole klikneš „Mám hotovo“.",
+      "Co je Opakování": "Po nové lekci přijde den Opakování. Appka ti ukáže slovíčko jako kartičku — nejdřív hádáš, pak si necháš ukázat překlad tlačítkem, a řekneš appce, jestli jsi to věděla nebo ne. Podle toho appka pozná, kdy ti to slovíčko připomenout znovu.",
+      "Vracení se ke starším lekcím": "Klidně se kdykoli vrať na starší den. Když tam znovu klikneš na „Mám hotovo“, příslušné Opakování se pro tu lekci restartuje — nabídne ti znovu všechna její slovíčka, jako by byla úplně nová.",
+      "Velké opakování u shrnutí": "Dny se svátečním emoji 🎉 shrnují celý předchozí blok tří lekcí najednou — ukážou ti všechna slovíčka ze všech tří dohromady, aby sis ověřila, jak na tom jsi. Na rozdíl od běžného opakování se tu neřeší, kdy má co „přijít na řadu“ — je to spíš takové mezitímní zhodnocení.",
+      "K čemu je bonus po Mám hotovo": "Po každém „Mám hotovo“ ti appka ukáže jako malé překvapení jednu zajímavost o Španělsku. Je to jen bonus navíc — všechny zajímavosti si stejně můžeš kdykoli volně projít v záložce Zvyklosti.",
+      "Proč appka chce povolení zvuku": "Telefony (hlavně iPhone) nedovolí přehrát zvuk, dokud se appky sama nedotkneš. Proto to žluté tlačítko na začátku — klikneš na něj jednou, a appka si zvuk „odemkne“ na celou dobu, co ji budeš používat.",
+      "Kde appka ukládá tvůj postup": "Appka si pamatuje tvůj postup jen v tomhle telefonu a tomhle prohlížeči — nikde jinde. Pokud appku otevřeš na jiném zařízení, začneš tam od začátku."
+    }
+  },
   "pronouns": {
     "intro": "Appka zatím v dialozích pracuje hlavně s „yo“ (já) a „tú“ (ty) — protože mluvíš converzačně o sobě a s kamarády. Zbytek si dej sem do přehledu; postupně se objeví i v lekcích, až budeš mluvit o někom třetím nebo o skupině lidí.",
     "list": [
