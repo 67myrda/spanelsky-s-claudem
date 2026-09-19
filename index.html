@@ -71,6 +71,15 @@
   .info-box{border-left:3px solid var(--gold);background:#FFFBF0;border-radius:0 10px 10px 0;padding:10px 12px;font-size:14px;line-height:1.5;}
   .info-box .it{font-weight:700;margin-bottom:4px;display:block;}
 
+  /* záložka Zájmena a předložky: štítky pro rychlý skok + podřádky s příklady */
+  .ref-chips{position:sticky;top:0;z-index:3;display:flex;gap:6px;overflow-x:auto;background:var(--cream);margin:-14px -16px 12px;padding:10px 16px;border-bottom:1px solid var(--line);}
+  .ref-chip{flex:0 0 auto;padding:6px 11px;border-radius:16px;border:1px solid var(--line);background:var(--paper);font-size:12px;font-weight:600;cursor:pointer;white-space:nowrap;}
+  .ref-chip:active{background:var(--teal);color:#fff;border-color:var(--teal);}
+  .ref-title{font-family:'Fraunces',serif;font-size:18px;font-weight:700;margin:24px 0 8px;scroll-margin-top:60px;}
+  .line.has-sub{margin-bottom:4px;}
+  .line.sub{margin-left:18px;padding:8px 10px;background:#FFFDF8;border-left:3px solid var(--teal);border-radius:0 12px 12px 0;margin-bottom:14px;}
+  .line.sub .es{font-size:15px;}
+
   .variation-row{display:flex;align-items:center;gap:10px;padding:8px 0;border-bottom:1px dashed var(--line);}
   .variation-row:last-child{border-bottom:none;}
   .variation-row .vtxt{flex:1;font-size:14px;line-height:1.4;}
@@ -156,7 +165,7 @@
   </div>
   <div class="tabs" id="tabs">
     <button class="tab active" data-tab="slovnik">🧺 Slovník</button>
-    <button class="tab" data-tab="zajmena">🔤 Zájmena</button>
+    <button class="tab" data-tab="zajmena">🔤 Zájmena a předložky</button>
     <button class="tab" data-tab="gramatika">📐 Gramatika</button>
     <button class="tab" data-tab="slovesa">🔁 Slovesa</button>
     <button class="tab" data-tab="vyslovnost">🔊 Výslovnost</button>
@@ -573,19 +582,48 @@ function renderTab(tab){
   }
 
   if (tab === 'zajmena'){
-    if (DATA.pronouns?.intro){
+    const PR = DATA.pronouns || {};
+    // sekce: 1) osobní zájmena (list), 2) ostatní z PR.sections
+    const sections = [];
+    if ((PR.list||[]).length) sections.push({id:'osobni', chip:PR.listChip||'Osobní', title:PR.listTitle||'Osobní zájmena', items:PR.list, note:PR.note});
+    (PR.sections||[]).forEach(s=>sections.push(s));
+
+    // štítky nahoře (skok na sekci)
+    const chips = document.createElement('div'); chips.className='ref-chips';
+    el.appendChild(chips);
+
+    if (PR.intro){
       const box = document.createElement('div');
-      box.className='info-box'; box.style.marginBottom='14px';
-      box.innerHTML = DATA.pronouns.intro;
+      box.className='info-box'; box.style.marginBottom='6px';
+      box.innerHTML = PR.intro;
       el.appendChild(box);
     }
-    (DATA.pronouns?.list||[]).forEach(p=> el.appendChild(lineRow(p.es, p.cz)));
-    if (DATA.pronouns?.note){
-      const note = document.createElement('div');
-      note.className='info-box'; note.style.marginTop='14px'; note.style.borderLeftColor='var(--teal)';
-      note.innerHTML = DATA.pronouns.note;
-      el.appendChild(note);
-    }
+
+    sections.forEach(s=>{
+      const h = document.createElement('div'); h.className='ref-title'; h.id='ref-'+s.id; h.textContent = s.title;
+      el.appendChild(h);
+      const chip = document.createElement('button'); chip.className='ref-chip'; chip.textContent = s.chip || s.title;
+      chip.onclick = ()=> h.scrollIntoView({behavior:'smooth', block:'start'});
+      chips.appendChild(chip);
+      if (s.intro){
+        const b = document.createElement('div'); b.className='info-box'; b.style.marginBottom='10px'; b.innerHTML = s.intro;
+        el.appendChild(b);
+      }
+      (s.items||[]).forEach(it=>{
+        const row = lineRow(it.es, it.cz);
+        el.appendChild(row);
+        if (it.ex){
+          row.classList.add('has-sub');
+          const sub = lineRow(it.ex.es, it.ex.cz); sub.classList.add('sub');
+          el.appendChild(sub);
+        }
+      });
+      if (s.note){
+        const n = document.createElement('div'); n.className='info-box'; n.style.marginTop='6px'; n.style.borderLeftColor='var(--teal)';
+        n.innerHTML = s.note;
+        el.appendChild(n);
+      }
+    });
   }
 
   if (tab === 'gramatika'){
