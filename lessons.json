@@ -570,7 +570,9 @@
     }
   },
   "pronouns": {
-    "intro": "Appka zatím v dialozích pracuje hlavně s „yo“ (já) a „tú“ (ty) — protože mluvíš converzačně o sobě a s kamarády. Zbytek si dej sem do přehledu; postupně se objeví i v lekcích, až budeš mluvit o někom třetím nebo o skupině lidí.",
+    "intro": "Tady najdeš malá slovíčka, která se hodí pořád: zájmena (já, můj, tenhle, kdo…) a předložky (v, do, s, pro…). Je to celé pohromadě a pořád k dispozici — ať jsi u kterékoli lekce, nemusíš nic hledat ve Slovníku. Klepni nahoře na štítek a skočíš rovnou, kam potřebuješ. 🔊 u každého řádku ti to přečte.",
+    "listChip": "Já, ty, on",
+    "listTitle": "Osobní zájmena (já, ty, on…)",
     "list": [
       { "es": "yo", "cz": "já" },
       { "es": "tú", "cz": "ty" },
@@ -580,7 +582,141 @@
       { "es": "vosotros / vosotras", "cz": "vy (běžné ve Španělsku! / jen holky)" },
       { "es": "ellos / ellas", "cz": "oni / ony" }
     ],
-    "note": "„Vosotros“ uslyšíš jen ve Španělsku — v Latinské Americe se pro „vy“ místo toho používá „ustedes“ (i mezi kamarády). Appka se drží španělské (kastilské) varianty."
+    "note": "Tip: „yo“ a „tú“ se ve španělštině většinou vůbec neříká — sloveso samo prozradí, kdo mluví. Říkáš „Tengo quince años“, ne „Yo tengo…“. Zájmeno přidáš jen pro důraz nebo kontrast: „Yo prefiero la música, ¿y tú?“ „Vosotros“ uslyšíš jen ve Španělsku — v Latinské Americe se pro „vy“ místo toho používá „ustedes“ (i mezi kamarády). Appka se drží španělské (kastilské) varianty. A ještě „usted“ = zdvořilé vykání (třeba cizím dospělým). Mezi kamarády se tyká, takže ho zatím nepotřebuješ.",
+    "sections": [
+      {
+        "id": "privlastnovaci",
+        "chip": "Můj, tvůj",
+        "title": "Přivlastňovací (můj, tvůj, jeho…)",
+        "intro": "Stojí PŘED podstatným jménem: „mi hermana“ (moje sestra). Tvary mi, tu a su se nemění podle rodu (mi hermano i mi hermana), jen dostanou -s, když je jich víc: „mis hermanas“.",
+        "items": [
+          { "es": "mi / mis", "cz": "můj, moje, moji", "ex": { "es": "Mi abuela vive en Pardubice.", "cz": "Moje babička bydlí v Pardubicích." } },
+          { "es": "tu / tus", "cz": "tvůj, tvoje", "ex": { "es": "¿Cuál es tu asignatura favorita?", "cz": "Jaký je tvůj oblíbený předmět?" } },
+          { "es": "su / sus", "cz": "jeho, její, jejich", "ex": { "es": "Su hermana se llama Ana.", "cz": "Jeho (její) sestra se jmenuje Ana." } },
+          { "es": "nuestro / nuestra", "cz": "náš, naše", "ex": { "es": "Nuestra profesora es muy simpática.", "cz": "Naše učitelka je moc sympatická." } },
+          { "es": "vuestro / vuestra", "cz": "váš, vaše (vosotros)", "ex": { "es": "¿Dónde está vuestro instituto?", "cz": "Kde je vaše škola?" } }
+        ],
+        "note": "„Nuestro“ a „vuestro“ se mění podle rodu i čísla: nuestro amigo, nuestra amiga, nuestros amigos, nuestras amigas. POZOR: „mi“ (můj) je bez čárky, ale „mí“ (po předložce, viz níže) má čárku — je to jiné slovo."
+      },
+      {
+        "id": "ukazovaci",
+        "chip": "Tenhle, ten",
+        "title": "Ukazovací (tenhle, ten, tamten…)",
+        "intro": "Jako když ukazuješ prstem. „Este / esta“ = tenhle, co je blízko mě. „Ese / esa“ = ten (o kousek dál). Shoduje se s podstatným jménem: este libro, esta camiseta.",
+        "items": [
+          { "es": "este / esta", "cz": "tenhle / tahle (blízko)", "ex": { "es": "¿Cuánto cuesta esta camiseta?", "cz": "Kolik stojí tohle tričko?" } },
+          { "es": "ese / esa", "cz": "ten / ta (o kousek dál)", "ex": { "es": "Me gusta esa chaqueta.", "cz": "Líbí se mi ta bunda." } },
+          { "es": "estos / estas", "cz": "tihle / tyhle (víc věcí)", "ex": { "es": "Estas zapatillas son muy cómodas.", "cz": "Tyhle tenisky jsou hodně pohodlné." } },
+          { "es": "esos / esas", "cz": "ti / ty (víc věcí, o kousek dál)", "ex": { "es": "¿Cuánto cuestan esos pantalones?", "cz": "Kolik stojí ty kalhoty?" } },
+          { "es": "esto / eso", "cz": "tohle / tamto (když nevíš, co to je)", "ex": { "es": "¿Qué es esto?", "cz": "Co je tohle?" } }
+        ],
+        "note": "V obchodě zvládneš i krátce: „Quiero este, por favor.“ (Chci tenhle, prosím.) Existuje ještě „aquel“ = tamten úplně daleko — to až později."
+      },
+      {
+        "id": "tazaci",
+        "chip": "Kdo, co, kde",
+        "title": "Tázací slova (kdo, co, kde, kdy…)",
+        "intro": "Vždycky s čárkou nad písmenem a v otázce s otočeným ¿ na začátku. Předložka stojí před tázacím slovem: „¿De dónde eres?“, „¿Con quién juegas?“",
+        "items": [
+          { "es": "qué", "cz": "co, jaký", "ex": { "es": "¿Qué haces en tu tiempo libre?", "cz": "Co děláš ve volném čase?" } },
+          { "es": "quién", "cz": "kdo", "ex": { "es": "¿Quién es tu mejor amiga?", "cz": "Kdo je tvoje nejlepší kamarádka?" } },
+          { "es": "dónde", "cz": "kde", "ex": { "es": "¿Dónde vives?", "cz": "Kde bydlíš?" } },
+          { "es": "cuándo", "cz": "kdy", "ex": { "es": "¿Cuándo es tu cumpleaños?", "cz": "Kdy máš narozeniny?" } },
+          { "es": "cómo", "cz": "jak", "ex": { "es": "¿Cómo te llamas?", "cz": "Jak se jmenuješ?" } },
+          { "es": "cuánto / cuánta / cuántos / cuántas", "cz": "kolik", "ex": { "es": "¿Cuántos años tienes?", "cz": "Kolik ti je let?" } },
+          { "es": "cuál", "cz": "který, jaký (z několika možností)", "ex": { "es": "¿Cuál prefieres?", "cz": "Který radši?" } },
+          { "es": "por qué", "cz": "proč", "ex": { "es": "¿Por qué estudias español?", "cz": "Proč se učíš španělsky?" } },
+          { "es": "de dónde", "cz": "odkud", "ex": { "es": "¿De dónde eres?", "cz": "Odkud jsi?" } },
+          { "es": "con quién", "cz": "s kým", "ex": { "es": "¿Con quién juegas?", "cz": "S kým hraješ?" } },
+          { "es": "a qué hora", "cz": "v kolik hodin", "ex": { "es": "¿A qué hora empieza la clase?", "cz": "V kolik začíná hodina?" } }
+        ],
+        "note": "Odpověď na „¿por qué?“ je „porque“ (protože) — píše se dohromady a bez čárky."
+      },
+      {
+        "id": "popredlozce",
+        "chip": "Se mnou, pro tebe",
+        "title": "Zájmena po předložce (pro mě, se mnou…)",
+        "intro": "Po předložce (para, con, de…) se „já“ a „ty“ mírně změní: yo → „mí“, tú → „ti“. Ostatní zůstávají stejná (él, ella, nosotros…). Jen „s“ je výjimka: „conmigo“ a „contigo“ jsou jedno slovo.",
+        "items": [
+          { "es": "para mí", "cz": "pro mě", "ex": { "es": "Para mí, un café con leche, por favor.", "cz": "Pro mě kávu s mlékem, prosím." } },
+          { "es": "para ti", "cz": "pro tebe", "ex": { "es": "Este regalo es para ti.", "cz": "Tenhle dárek je pro tebe." } },
+          { "es": "conmigo", "cz": "se mnou", "ex": { "es": "¿Vienes conmigo al cine?", "cz": "Půjdeš se mnou do kina?" } },
+          { "es": "contigo", "cz": "s tebou", "ex": { "es": "Me gusta hablar contigo.", "cz": "Baví mě s tebou mluvit." } },
+          { "es": "con él / con ella", "cz": "s ním / s ní", "ex": { "es": "Estudio con ella.", "cz": "Učím se s ní." } }
+        ],
+        "note": "Neříká se „con mí“ ani „con ti“ — vždycky „conmigo“ a „contigo“. A „mí“ s čárkou (po předložce) není totéž co „mi“ bez čárky (můj)."
+      },
+      {
+        "id": "mala",
+        "chip": "me, te, le",
+        "title": "Malá zájmena: me, te, le… (ta, co už znáš)",
+        "intro": "Už jsi je viděla, jen jsme jim neříkali jménem: v „me llamo“ (jmenuji se) a v „me gusta“ (líbí se mi). Tady je máš pohromadě. Zatím stačí, když je poznáš.",
+        "items": [
+          { "es": "me", "cz": "mi, mě, se (já)", "ex": { "es": "Me gusta la música.", "cz": "Líbí se mi hudba." } },
+          { "es": "te", "cz": "ti, tě, se (ty)", "ex": { "es": "¿Te gusta el chocolate?", "cz": "Chutná ti čokoláda?" } },
+          { "es": "le", "cz": "jemu, jí (on, ona)", "ex": { "es": "A él le gusta el fútbol.", "cz": "Jemu se líbí fotbal." } },
+          { "es": "nos", "cz": "nám (my)", "ex": { "es": "Nos gusta la pizza.", "cz": "Pizza nám chutná." } },
+          { "es": "os", "cz": "vám (vy, vosotros)", "ex": { "es": "¿Os gusta esta canción?", "cz": "Líbí se vám tahle písnička?" } },
+          { "es": "les", "cz": "jim (oni, ony)", "ex": { "es": "A ellas les gusta bailar.", "cz": "Ony rády tančí." } }
+        ],
+        "note": "Chceš zdůraznit, kdo to má rád? Přidáš „a mí / a ti / a él…“: „A mí me gusta, ¿y a ti?“ (Mně jo, a tobě?)"
+      },
+      {
+        "id": "predlozky",
+        "chip": "Předložky",
+        "title": "Předložky: ty nejdůležitější",
+        "intro": "Malá slovíčka, která říkají kam, kde, s kým, čím nebo pro koho. Pozor, nejsou 1:1 jako česky: „en“ pokryje naše „v“ i „na“, „a“ naše „do“, „k“ i „v“ (u času).",
+        "items": [
+          { "es": "a", "cz": "do, k, na (směr)", "ex": { "es": "Voy a Pardubice.", "cz": "Jedu do Pardubic." } },
+          { "es": "a las ocho", "cz": "v osm hodin (čas)", "ex": { "es": "La clase empieza a las ocho.", "cz": "Hodina začíná v osm." } },
+          { "es": "de", "cz": "z, od", "ex": { "es": "Soy de la República Checa.", "cz": "Jsem z České republiky." } },
+          { "es": "de Eli", "cz": "Eliščin (něčí)", "ex": { "es": "Es la guitarra de Eli.", "cz": "To je Eliščina kytara." } },
+          { "es": "en", "cz": "v, na (místo)", "ex": { "es": "Vivo en Police nad Metují.", "cz": "Bydlím v Polici nad Metují." } },
+          { "es": "en autobús", "cz": "autobusem (čím jedu)", "ex": { "es": "Voy al instituto en autobús.", "cz": "Do školy jezdím autobusem." } },
+          { "es": "con", "cz": "s", "ex": { "es": "Juego videojuegos con mi hermana.", "cz": "Hraju videohry se sestrou." } },
+          { "es": "sin", "cz": "bez", "ex": { "es": "Sin hielo, por favor.", "cz": "Bez ledu, prosím." } },
+          { "es": "para", "cz": "pro; na, k (účel, cíl)", "ex": { "es": "Estudio para el examen.", "cz": "Učím se na zkoušku." } },
+          { "es": "por", "cz": "za, kvůli; po, skrz", "ex": { "es": "Gracias por tu ayuda.", "cz": "Díky za tvou pomoc." } },
+          { "es": "por la tarde", "cz": "odpoledne (denní doba)", "ex": { "es": "Por la tarde toco la guitarra.", "cz": "Odpoledne hraju na kytaru." } },
+          { "es": "desde", "cz": "od (kdy)", "ex": { "es": "Somos amigas desde primaria.", "cz": "Jsme kamarádky od základky." } },
+          { "es": "hasta", "cz": "až do, do", "ex": { "es": "¡Hasta mañana!", "cz": "Do zítřka!" } },
+          { "es": "entre", "cz": "mezi", "ex": { "es": "La parada está entre mi casa y el instituto.", "cz": "Zastávka je mezi naším domem a školou." } },
+          { "es": "sobre", "cz": "na (svrchu); o (téma)", "ex": { "es": "El móvil está sobre la mesa.", "cz": "Mobil je na stole." } }
+        ],
+        "note": "Hrubé pravidlo pro „para“ × „por“: PARA = k čemu / pro koho (cíl): para ti, para el examen. POR = proč / za co / kudy (příčina): gracias por… Je to velké téma, které se rozklíčuje časem — zatím jen poznávej. Pěšky se řekne „a pie“."
+      },
+      {
+        "id": "misto",
+        "chip": "Kde a kdy",
+        "title": "Kde přesně? A kdy?",
+        "intro": "Tyhle skládají dvě slova, ale chovají se jako jedna předložka. Většina končí na „de“.",
+        "items": [
+          { "es": "cerca de", "cz": "blízko", "ex": { "es": "Vivo cerca de la parada.", "cz": "Bydlím blízko zastávky." } },
+          { "es": "lejos de", "cz": "daleko od", "ex": { "es": "La playa está lejos de aquí.", "cz": "Pláž je odsud daleko." } },
+          { "es": "al lado de", "cz": "vedle", "ex": { "es": "La parada está al lado del instituto.", "cz": "Zastávka je vedle školy." } },
+          { "es": "delante de", "cz": "před (místo)", "ex": { "es": "Estoy delante del instituto.", "cz": "Stojím před školou." } },
+          { "es": "detrás de", "cz": "za (místo)", "ex": { "es": "El gato está detrás de la puerta.", "cz": "Kočka je za dveřmi." } },
+          { "es": "encima de", "cz": "nad, na (nahoře)", "ex": { "es": "El libro está encima de la cama.", "cz": "Kniha je na posteli." } },
+          { "es": "debajo de", "cz": "pod", "ex": { "es": "El gato está debajo de la mesa.", "cz": "Kočka je pod stolem." } },
+          { "es": "antes de", "cz": "před (čas)", "ex": { "es": "Antes de dormir escucho música.", "cz": "Před spaním poslouchám hudbu." } },
+          { "es": "después de", "cz": "po (čas)", "ex": { "es": "Después de clase toco la guitarra.", "cz": "Po škole hraju na kytaru." } }
+        ],
+        "note": "Všimni si „al lado del instituto“ — „de“ + „el“ se slepilo do „del“. Vysvětlení hned níž."
+      },
+      {
+        "id": "al-del",
+        "chip": "al / del",
+        "title": "Zkratky „al“ a „del“",
+        "intro": "Jediné dvě zkratky předložky s členem: a + el = „al“, de + el = „del“. Platí jen před „el“ (mužský rod, jednotné číslo).",
+        "items": [
+          { "es": "al", "cz": "= a + el (do, k, na)", "ex": { "es": "Voy al cine con Lucía.", "cz": "Jdu do kina s Lucíí." } },
+          { "es": "del", "cz": "= de + el (z, od)", "ex": { "es": "Vengo del instituto.", "cz": "Přicházím ze školy." } },
+          { "es": "a la / a los / a las", "cz": "bez zkratky", "ex": { "es": "Voy a la biblioteca.", "cz": "Jdu do knihovny." } },
+          { "es": "de la / de los / de las", "cz": "bez zkratky", "ex": { "es": "Vengo de la clase de música.", "cz": "Přicházím z hudebky." } }
+        ],
+        "note": "Nikdy „a el“ ani „de el“ — vždycky al a del. Jediná výjimka: „de él“ (o něm, jeho) — tam je „él“ zájmeno (s čárkou), ne člen, a nelepí se."
+      }
+    ]
   },
   "verbs": {
     "intro": "Sloves je tu zatím málo schválně — přibývají postupně, jak se objevují v lekcích, ne všechna najednou. Tahle záložka je spíš referenční přehled toho, co už umíš, než seznam k biflování dopředu.",
